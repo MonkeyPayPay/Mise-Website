@@ -408,3 +408,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* -------- brand mark (app icon) -------- */
 .brand__mark-img { width: 30px; height: 30px; border-radius: 7px; flex: none; box-shadow: 0 1px 3px rgba(0,0,0,.4); }
 .footer .brand__mark-img { width: 26px; height: 26px; }
+
+/* -------- multi-venue / portfolio mock -------- */
+.portfolio { max-width: 440px; margin-inline: auto; width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-md); overflow: hidden; font-size: .95rem; }
+.portfolio__head { display: flex; align-items: center; justify-content: space-between; padding: .9rem 1.1rem; border-bottom: 1px solid var(--line); background: var(--paper); font-weight: 600; }
+.portfolio__row { display: grid; grid-template-columns: 1.6fr 1fr .8fr .8fr; gap: .5rem; align-items: center; padding: .7rem 1.1rem; border-bottom: 1px solid var(--paper-2); }
+.portfolio__row--h { color: var(--muted); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; padding-block: .5rem; }
+.portfolio__row--h span:not(:first-child), .portfolio__row span:not(:first-child) { text-align: right; }
+.portfolio__row--alert { background: rgba(239,115,101,.06); }
+.portfolio .mono.ok { color: var(--ok); }
+.portfolio .mono.warn { color: var(--terracotta); }
+.portfolio__foot { padding: .85rem 1.1rem; font-size: .82rem; color: var(--saffron-2); background: var(--paper); }
