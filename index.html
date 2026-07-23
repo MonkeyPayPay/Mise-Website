@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mise — The Restaurant Operating System</title>
+  <title>Mise — Restaurant POS &amp; Back-of-House Software</title>
   <meta name="description" content="Mise replaces the seven-tab restaurant stack — POS back office, reservations, scheduling, procurement, accounting, checklists and team comms — with one platform, one login, one source of truth. Synced in real time from the host stand to the office." />
   <meta name="theme-color" content="#0e1218" />
   <link rel="canonical" href="https://mise-hospitality.com/" />
@@ -15,14 +15,14 @@
   <meta property="og:title" content="Mise — The Restaurant Operating System" />
   <meta property="og:description" content="One platform for inventory, reservations, scheduling, procurement, P&L, checklists and team comms — synced in real time from a single closed check." />
   <meta property="og:url" content="https://mise-hospitality.com/" />
-  <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.svg" />
+  <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mise — The Restaurant Operating System" />
   <meta name="twitter:description" content="Everything in its place. One platform replaces the seven-subscription restaurant stack." />
-  <meta name="twitter:image" content="https://mise-hospitality.com/assets/og-image.svg" />
+  <meta name="twitter:image" content="https://mise-hospitality.com/assets/og-image.png" />
 
-  <link rel="icon" href="/assets/app-icon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/assets/app-icon.png" />
+  <link rel="icon" href="/assets/app-icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/app-icon-192.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,6 +50,35 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mise",
+    "url": "https://mise-hospitality.com/",
+    "logo": "https://mise-hospitality.com/assets/app-icon.png",
+    "email": "hello@mise-hospitality.com",
+    "description": "Mise is an all-in-one restaurant operating system: POS, reservations, scheduling, inventory, procurement, financials and team comms in one real-time platform."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do I have to replace my POS?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Mise sits on top of the POS you already run. Webhook adapters for Toast, Square and Lightspeed turn a closed check into one normalized event that fans out to every module — inventory, financials, guest CRM and the 86 board." } },
+      { "@type": "Question", "name": "Are there per-cover or per-reservation fees?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Never. Reservations and the guest booking widget are flat-rate on the Service tier and up. You pay per location, not per guest who walks through the door." } },
+      { "@type": "Question", "name": "How long does it take to get set up?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most single locations are live within a day. Your menu, recipes and vendor catalogs import once, and the platform boots with your real sales history flowing through the sync engine." } },
+      { "@type": "Question", "name": "Can staff see the financials?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Only if you let them. Roles are enforced server-side: managers get the full platform, while servers, hosts and cooks get a role-scoped view — no financials, no vendor costs, no colleagues' wages." } },
+      { "@type": "Question", "name": "What does it cost to try?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every tier includes a 14-day free trial with unlimited staff accounts. No card tricks, no per-cover fees." } }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -58,7 +87,7 @@
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="Mise home">
-        <img class="brand__mark-img" src="/assets/app-icon.png" alt="" width="30" height="30" />
+        <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
         <span class="brand__word">Mise</span>
       </a>
 
@@ -379,7 +408,7 @@
               <li>Team comms</li>
               <li>Unlimited staff accounts</li>
             </ul>
-            <a class="btn btn--outline btn--block" href="#demo">Start free trial</a>
+            <a class="btn btn--outline btn--block" href="#demo">Book a demo</a>
           </article>
 
           <article class="price price--featured reveal">
@@ -393,7 +422,7 @@
               <li>Scheduling &amp; labor</li>
               <li>Booking widget for your site</li>
             </ul>
-            <a class="btn btn--solid btn--block" href="#demo">Start free trial</a>
+            <a class="btn btn--solid btn--block" href="#demo">Book a demo</a>
           </article>
 
           <article class="price reveal">
@@ -406,7 +435,7 @@
               <li>Live P&amp;L &amp; prime cost</li>
               <li>API access</li>
             </ul>
-            <a class="btn btn--outline btn--block" href="#demo">Start free trial</a>
+            <a class="btn btn--outline btn--block" href="#demo">Book a demo</a>
           </article>
 
           <article class="price reveal">
@@ -475,10 +504,14 @@
           <div class="cta__row">
             <label class="sr-only" for="restaurant">Restaurant</label>
             <input id="restaurant" name="restaurant" type="text" placeholder="Restaurant name" autocomplete="organization" />
-            <button class="btn btn--solid btn--lg" type="submit">Request a demo</button>
+            <label class="sr-only" for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="Phone (optional)" autocomplete="tel" />
+          </div>
+          <div class="cta__row">
+            <button class="btn btn--solid btn--lg btn--block" type="submit">Request a demo</button>
           </div>
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
-          <p class="cta__disclaimer" data-form-note>We'll never share your details. We usually reply within a day.</p>
+          <p class="cta__disclaimer" data-form-note>We'll never share your details. We reply within one business day — usually faster.</p>
         </form>
       </div>
     </section>
@@ -489,7 +522,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a class="brand" href="#top" aria-label="Mise home">
-          <img class="brand__mark-img" src="/assets/app-icon.png" alt="" width="30" height="30" />
+          <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
           <span class="brand__word">Mise</span>
         </a>
         <p class="footer__tag">Everything in its place.</p>
@@ -509,6 +542,7 @@
           <a href="/signin.html">Sign in</a>
           <a href="/signin.html">Live demo</a>
           <a href="#demo">Book a demo</a>
+          <a href="mailto:hello@mise-hospitality.com?subject=Support">Support</a>
         </div>
         <div>
           <h4>Legal</h4>
