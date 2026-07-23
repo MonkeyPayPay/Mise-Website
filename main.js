@@ -54,7 +54,7 @@
   // SETUP (≈60s, no account): go to https://web3forms.com, enter the email you
   // want leads sent to, copy the access key, and paste it below. Until you do,
   // the form gracefully falls back to opening a pre-filled email.
-  var WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  var WEB3FORMS_KEY = "7130a5a4-b2e8-4fe9-a5cd-adef0807d53e";
 
   var form = document.querySelector(".cta__form");
   if (form) {
