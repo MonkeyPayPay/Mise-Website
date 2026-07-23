@@ -433,3 +433,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .shot--feature { max-width: 940px; margin: 0 auto 2.5rem; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .grid--3 { grid-template-columns: 1fr; } }
+
+/* -------- module card 'learn more' link -------- */
+.card__more { color: var(--saffron-2); font-weight: 600; font-size: .88rem; margin-top: .8rem; display: inline-block; }
+.card__more:hover { color: var(--brand-hi); }
