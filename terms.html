@@ -10,19 +10,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .legal { max-width: 760px; }
+    .legal h2 { font-size: 1.35rem; margin: 2rem 0 .6rem; }
+    .legal p, .legal li { color: var(--muted); }
+    .legal ul { margin: .4rem 0 1rem; padding-left: 1.2rem; list-style: disc; }
+    .legal li { margin-bottom: .35rem; }
+    .legal strong { color: var(--ink); }
+    .legal .note { background: var(--paper-2); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.2rem; font-size: .9rem; margin: 1.5rem 0; }
+  </style>
 </head>
 <body>
-  <main class="section container narrow">
+  <main class="section container legal">
     <p><a href="/">&larr; Back to Mise</a></p>
-    <h1 class="section__title" style="margin:1.5rem 0 .5rem">Terms of Service</h1>
-    <p class="section__lede" style="margin-bottom:2rem">Last updated 23 July 2026</p>
+    <h1 class="section__title" style="margin:1.5rem 0 .3rem">Terms of Service</h1>
+    <p class="section__lede" style="margin-bottom:1rem">Last updated 23 July 2026</p>
 
-    <div style="display:flex;flex-direction:column;gap:1.25rem;color:var(--muted)">
-      <p><strong style="color:var(--ink)">Placeholder.</strong> This is a starting template. Have it reviewed by counsel before you rely on it. Replace this page with your finalized terms prior to public launch.</p>
-      <p>By using the Mise website and platform you agree to use them lawfully and not to disrupt the service. Subscriptions are billed per location, per month, with a 14-day free trial; you may cancel at any time.</p>
-      <p>Mise is provided "as is" while in early access. We work to keep the platform available and accurate but do not warrant uninterrupted service. Our liability is limited to the amount you paid in the preceding month.</p>
-      <p>Questions: <a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a>.</p>
-    </div>
+    <div class="note">These terms are a general template for the Mise service. They are provided for convenience and are <strong>not legal advice</strong>. Please have them reviewed by qualified counsel and tailored to your business and jurisdiction before you rely on them.</div>
+
+    <p>These Terms of Service ("Terms") govern your access to and use of the Mise website, operator platform, and related services (the "Service") provided by Mise Hospitality ("Mise," "we," "us"). By using the Service you agree to these Terms.</p>
+
+    <h2>1. The Service</h2>
+    <p>Mise is an all-in-one restaurant operating system covering inventory, reservations and guests, scheduling and labor, procurement, financials, checklists, team communications, point of sale, and integrations. The Service is offered on a subscription basis and may include early-access or beta features that are provided "as is."</p>
+
+    <h2>2. Accounts &amp; security</h2>
+    <p>You are responsible for the accuracy of your account information, for maintaining the confidentiality of your credentials, and for all activity under your account. Notify us promptly of any unauthorized use. You must grant staff access only through appropriate roles.</p>
+
+    <h2>3. Acceptable use</h2>
+    <p>You agree not to misuse the Service, including by attempting to disrupt or gain unauthorized access to it, reverse engineering it, uploading unlawful or infringing content, or using it to violate the rights of others or applicable law.</p>
+
+    <h2>4. Your data</h2>
+    <p>As between you and Mise, <strong>you own the data you put into the Service</strong>, including your restaurant, staff, and guest records. You grant us a limited license to host and process that data to provide and improve the Service. You are responsible for having the necessary rights and consents to collect and process your guests' and staff's information, and for complying with applicable privacy and labor laws. Our handling of personal data is described in the <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>5. Subscriptions, billing &amp; trials</h2>
+    <ul>
+      <li>Paid plans are billed per location, per month (or as otherwise agreed), in advance.</li>
+      <li>Eligible plans include a 14-day free trial. Unless you cancel before the trial ends, the plan converts to a paid subscription.</li>
+      <li>You may cancel at any time; cancellation takes effect at the end of the current billing period. Fees already paid are non-refundable except where required by law.</li>
+      <li>We may change pricing on renewal with reasonable prior notice.</li>
+    </ul>
+
+    <h2>6. Third-party services</h2>
+    <p>The Service integrates with third parties (for example POS providers, payment processors, and SMS/email vendors). Your use of those services is subject to their terms, and we are not responsible for third-party services.</p>
+
+    <h2>7. Intellectual property</h2>
+    <p>Mise and its licensors own the Service, its software, and its branding. These Terms grant you a limited, non-exclusive, non-transferable right to use the Service during your subscription; no other rights are granted.</p>
+
+    <h2>8. Disclaimers</h2>
+    <p>The Service is provided <strong>"as is" and "as available"</strong> without warranties of any kind, whether express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or that all data will be accurate.</p>
+
+    <h2>9. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, Mise will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for lost profits or data. Our total liability for any claim arising out of or relating to the Service is limited to the amount you paid us for the Service in the 12 months before the event giving rise to the claim (or, during any free period, USD 100).</p>
+
+    <h2>10. Indemnification</h2>
+    <p>You agree to indemnify and hold Mise harmless from claims arising out of your data, your use of the Service, or your violation of these Terms or applicable law.</p>
+
+    <h2>11. Termination</h2>
+    <p>You may stop using the Service at any time. We may suspend or terminate access if you breach these Terms or to protect the Service. On termination you may request an export of your data for a reasonable period, after which we may delete it.</p>
+
+    <h2>12. Governing law &amp; disputes</h2>
+    <p>These Terms are governed by the laws of the state in which Mise is established, without regard to conflict-of-laws rules. The courts located there will have exclusive jurisdiction, unless applicable law requires otherwise. <em>(Confirm the governing-law state and any arbitration terms with counsel.)</em></p>
+
+    <h2>13. Changes</h2>
+    <p>We may update these Terms from time to time. Material changes will be reflected by updating the date above and, where appropriate, by additional notice. Continued use after changes take effect constitutes acceptance.</p>
+
+    <h2>14. Contact</h2>
+    <p>Questions: <a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a>.</p>
   </main>
 </body>
 </html>

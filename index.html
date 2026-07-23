@@ -29,6 +29,17 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- ===== Analytics (optional) =====================================
+       Pick ONE, uncomment it, and drop the same line into pos.html,
+       reservations.html and signin.html so every page is counted.
+       · Cloudflare Web Analytics (free, privacy-first, no cookie banner):
+         <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+                 data-cf-beacon='{"token":"YOUR_CF_TOKEN"}'></script>
+       · Plausible (paid, privacy-first):
+         <script defer data-domain="mise-hospitality.com" src="https://plausible.io/js/script.js"></script>
+       · Google Analytics 4 (free): paste the GA4 gtag snippet here.
+  ============================================================== -->
+
   <!-- Structured data -->
   <script type="application/ld+json">
   {
@@ -478,7 +489,8 @@
             <input id="restaurant" name="restaurant" type="text" placeholder="Restaurant name" autocomplete="organization" />
             <button class="btn btn--solid btn--lg" type="submit">Request a demo</button>
           </div>
-          <p class="cta__disclaimer" data-form-note>We'll never share your details. Wire this form to your inbox before launch — see the README.</p>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+          <p class="cta__disclaimer" data-form-note>We'll never share your details. We usually reply within a day.</p>
         </form>
       </div>
     </section>
