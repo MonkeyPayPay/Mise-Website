@@ -6,6 +6,16 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://mise-hospitality.com/pos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mise-hospitality.com/reservations.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mise-hospitality.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

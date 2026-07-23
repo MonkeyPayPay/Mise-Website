@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Center — Book a table anywhere · Mise</title>
+  <meta name="description" content="Find and book a table at any restaurant. Mise restaurants confirm instantly, straight to the host stand; everywhere else, we hand you to OpenTable, Resy or Google so you still leave with a reservation." />
+  <link rel="canonical" href="https://mise-hospitality.com/reservations.html" />
+  <meta property="og:title" content="Mise Guest Center — Book a table anywhere" />
+  <meta property="og:description" content="One search across every restaurant. Instant booking for Mise locations; deep-links out for the rest." />
+  <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.svg" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* ---- Guest Center scoped styles ---- */
+    .gc-hero { background:
+      radial-gradient(1000px 420px at 80% -10%, rgba(209,133,47,.16), transparent 60%),
+      radial-gradient(760px 420px at 0% 0%, rgba(91,107,82,.10), transparent 55%);
+      padding: clamp(2.5rem,6vw,4rem) 0 1.5rem; }
+    .gc-search { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow-md); padding: 1rem; display: grid;
+      grid-template-columns: 2fr 1.2fr 1fr 1fr auto; gap: .7rem; align-items: end; margin-top: 1.8rem; }
+    .gc-field { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+    .gc-field label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; padding-left: .2rem; }
+    .gc-field input, .gc-field select { padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 10px;
+      font-family: var(--font-sans); font-size: .95rem; background: var(--paper); color: var(--ink); width: 100%; }
+    .gc-field input:focus, .gc-field select:focus { outline: none; border-color: var(--saffron); background: #fff; }
+    .gc-search .btn { height: 44px; }
+    .gc-count { margin: 2rem 0 1rem; color: var(--muted); font-size: .95rem; }
+    .gc-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+    .rest { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1.4rem; display: flex; flex-direction: column; }
+    .rest__top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; }
+    .rest__name { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; }
+    .rest__meta { color: var(--muted); font-size: .9rem; margin: .35rem 0 1rem; }
+    .rest__slots { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; }
+    .rest__slots button { padding: .5rem .8rem; border: 1px solid var(--saffron); background: rgba(209,133,47,.08);
+      color: var(--saffron-2); border-radius: 8px; font-family: var(--font-sans); font-weight: 700; font-size: .9rem; cursor: pointer; transition: .15s; }
+    .rest__slots button:hover { background: var(--saffron); color: var(--ink); }
+    .rest__ext { display: inline-flex; align-items: center; gap: .4rem; margin-top: auto; padding: .65rem 1rem; border: 1.5px solid var(--ink);
+      border-radius: 999px; font-weight: 600; font-size: .9rem; align-self: flex-start; transition: .15s; }
+    .rest__ext:hover { background: var(--ink); color: var(--paper); }
+    .gc-empty { text-align: center; color: var(--muted); padding: 3rem 1rem; }
+    /* modal */
+    .modal { position: fixed; inset: 0; background: rgba(28,26,23,.55); display: none; align-items: center; justify-content: center; padding: 1.5rem; z-index: 200; }
+    .modal[open] { display: flex; }
+    .modal__card { background: var(--card); border-radius: var(--radius); max-width: 440px; width: 100%; padding: 1.8rem; box-shadow: var(--shadow-md); }
+    .modal__card h3 { font-size: 1.5rem; margin-bottom: .3rem; }
+    .modal__meta { color: var(--muted); margin-bottom: 1.2rem; }
+    .modal__card label { display: block; font-size: .8rem; font-weight: 600; margin: .8rem 0 .3rem; }
+    .modal__card input { width: 100%; padding: .75rem .9rem; border: 1px solid var(--line); border-radius: 10px; font-family: var(--font-sans); font-size: 1rem; }
+    .modal__actions { display: flex; gap: .6rem; margin-top: 1.4rem; }
+    .modal__success { text-align: center; }
+    .modal__check { width: 56px; height: 56px; border-radius: 50%; background: rgba(76,122,82,.14); color: var(--ok); display: grid; place-content: center; margin: 0 auto 1rem; font-size: 1.8rem; }
+    @media (max-width: 820px) { .gc-search { grid-template-columns: 1fr 1fr; } .gc-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Mise home">
+        <svg class="brand__mark" width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+          <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.4" fill="currentColor"/>
+        </svg>
+        <span class="brand__word">Mise</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/#platform">Platform</a>
+        <a href="/pos.html">POS</a>
+        <a href="/reservations.html">Guest Center</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="/signin.html">Sign in</a>
+        <a class="btn btn--solid" href="/#demo">For restaurants</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="gc-hero">
+      <div class="container">
+        <p class="eyebrow">Guest Center</p>
+        <h1 class="section__title" style="font-size:clamp(2.2rem,5vw,3.4rem);max-width:16ch">Book a table anywhere</h1>
+        <p class="section__lede" style="max-width:56ch">Search once. <strong>Mise restaurants confirm instantly</strong> — straight to the host stand. For anywhere not yet on Mise, we point you to the right platform so you still leave with a reservation.</p>
+
+        <form class="gc-search" id="gcSearch" novalidate>
+          <div class="gc-field">
+            <label for="q">Restaurant, cuisine or city</label>
+            <input id="q" type="text" placeholder="Try “seafood”, “Seattle”, or a name" />
+          </div>
+          <div class="gc-field">
+            <label for="date">Date</label>
+            <input id="date" type="date" />
+          </div>
+          <div class="gc-field">
+            <label for="party">Party</label>
+            <select id="party">
+              <option>1 guest</option><option selected>2 guests</option><option>3 guests</option>
+              <option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7+ guests</option>
+            </select>
+          </div>
+          <div class="gc-field">
+            <label for="time">Time</label>
+            <select id="time">
+              <option value="">Any time</option><option>5:30 PM</option><option>6:00 PM</option>
+              <option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option>
+            </select>
+          </div>
+          <button class="btn btn--solid" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:1rem">
+      <div class="container">
+        <p class="gc-count" id="gcCount"></p>
+        <div class="gc-list" id="gcList"></div>
+        <div class="gc-empty" id="gcEmpty" hidden>
+          <p>No matches in this demo dataset. Try “Seattle”, “Italian”, “sushi”, or clear the search.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section--muted">
+      <div class="container narrow center reveal">
+        <p class="eyebrow">How the Guest Center works</p>
+        <h2 class="section__title">Instant where we can, a warm handoff where we can't</h2>
+        <p class="section__lede">Restaurants running Mise book in real time — the table lands on their host stand the same second, with confirmation SMS and email, and never a per-cover fee. For restaurants on other systems, we send you straight to their OpenTable, Resy or Google listing. One search, always a table.</p>
+        <p style="margin-top:1.6rem"><a class="btn btn--outline btn--lg" href="/#demo">Run a restaurant? Add it to Mise</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="modal__card" id="modalCard"><!-- filled by JS --></div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__bottom" style="border:0;padding-top:0">
+      <p><a href="/">&larr; mise-hospitality.com</a></p>
+      <p><a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // Demo dataset. Mise restaurants book natively (→ /book on the app);
+      // others deep-link to the platform they actually use.
+      var RESTAURANTS = [
+        { name: "Harbor & Vine", cuisine: "Seafood", price: "$$$", city: "Seattle", dist: "0.4 mi", mise: true,  slots: ["6:00","6:45","7:15","8:00","8:30"] },
+        { name: "Ember & Oak", cuisine: "Steakhouse", price: "$$$$", city: "Seattle", dist: "1.1 mi", mise: true,  slots: ["5:30","6:15","7:00","9:00"] },
+        { name: "Copper Pot", cuisine: "American", price: "$$", city: "Seattle", dist: "0.8 mi", mise: true, slots: ["6:00","6:30","7:30","8:15"] },
+        { name: "Saffron Room", cuisine: "Indian", price: "$$", city: "Portland", dist: "—", mise: true, slots: ["6:30","7:00","7:45"] },
+        { name: "Bella Toscana", cuisine: "Italian", price: "$$$", city: "Seattle", dist: "0.6 mi", mise: false, platform: "OpenTable", url: "https://www.opentable.com/s?term=Bella%20Toscana%20Seattle" },
+        { name: "Nori Omakase", cuisine: "Sushi", price: "$$$", city: "Portland", dist: "—", mise: false, platform: "Resy", url: "https://resy.com/cities/portland-or?query=Nori" },
+        { name: "The Greenhouse", cuisine: "Farm-to-table", price: "$$$", city: "Seattle", dist: "2.3 mi", mise: false, platform: "OpenTable", url: "https://www.opentable.com/s?term=The%20Greenhouse%20Seattle" },
+        { name: "Luna Cantina", cuisine: "Mexican", price: "$$", city: "Seattle", dist: "1.5 mi", mise: false, platform: "Google", url: "https://www.google.com/search?q=Luna+Cantina+Seattle+reservation" }
+      ];
+
+      var list = document.getElementById("gcList");
+      var count = document.getElementById("gcCount");
+      var empty = document.getElementById("gcEmpty");
+      var form = document.getElementById("gcSearch");
+      var modal = document.getElementById("modal");
+      var modalCard = document.getElementById("modalCard");
+
+      function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+
+      function partyValue(){ return document.getElementById("party").value; }
+      function dateValue(){
+        var d = document.getElementById("date").value;
+        if (!d) return "your date";
+        var parts = d.split("-");
+        return new Date(parts[0], parts[1]-1, parts[2]).toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" });
+      }
+
+      function render(items) {
+        list.innerHTML = "";
+        count.textContent = items.length + (items.length === 1 ? " restaurant" : " restaurants") +
+          " · " + partyValue() + " · " + dateValue();
+        empty.hidden = items.length > 0;
+        items.forEach(function (r) {
+          var el = document.createElement("article");
+          el.className = "rest";
+          var badge = r.mise
+            ? '<span class="pill pill--mise">on Mise · instant</span>'
+            : '<span class="pill pill--ext">via ' + esc(r.platform) + ' ↗</span>';
+          var action;
+          if (r.mise) {
+            action = '<div class="rest__slots">' + r.slots.map(function (t) {
+              return '<button data-book="' + esc(r.name) + '" data-time="' + esc(t) + '">' + esc(t) + '</button>';
+            }).join("") + '</div>';
+          } else {
+            action = '<a class="rest__ext" href="' + esc(r.url) + '" target="_blank" rel="noopener">Book on ' + esc(r.platform) + ' ↗</a>';
+          }
+          el.innerHTML =
+            '<div class="rest__top"><span class="rest__name">' + esc(r.name) + '</span>' + badge + '</div>' +
+            '<p class="rest__meta">' + esc(r.cuisine) + ' · ' + esc(r.price) + ' · ' + esc(r.city) + ' · ' + esc(r.dist) + '</p>' +
+            action;
+          list.appendChild(el);
+        });
+      }
+
+      function filter() {
+        var q = document.getElementById("q").value.trim().toLowerCase();
+        var items = RESTAURANTS.filter(function (r) {
+          if (!q) return true;
+          return (r.name + " " + r.cuisine + " " + r.city + " " + (r.platform||"")).toLowerCase().indexOf(q) !== -1;
+        });
+        render(items);
+      }
+
+      // Booking modal (native Mise flow — mocked client-side for the marketing site)
+      function openBooking(name, time) {
+        modalCard.innerHTML =
+          '<h3 id="mTitle">' + esc(name) + '</h3>' +
+          '<p class="modal__meta">' + esc(dateValue()) + ' · ' + esc(time) + ' PM · ' + esc(partyValue()) + '</p>' +
+          '<label for="mName">Name on the reservation</label><input id="mName" type="text" placeholder="Your name" />' +
+          '<label for="mEmail">Email</label><input id="mEmail" type="email" placeholder="you@email.com" />' +
+          '<label for="mNote">Notes (allergies, occasion)</label><input id="mNote" type="text" placeholder="Optional" />' +
+          '<div class="modal__actions">' +
+            '<button class="btn btn--outline btn--block" data-close>Cancel</button>' +
+            '<button class="btn btn--solid btn--block" data-confirm>Confirm reservation</button>' +
+          '</div>';
+        modal.setAttribute("open", "");
+      }
+      function confirmBooking(name, time) {
+        modalCard.innerHTML =
+          '<div class="modal__success">' +
+            '<div class="modal__check">✓</div>' +
+            '<h3>Table booked</h3>' +
+            '<p class="modal__meta">' + esc(name) + ' · ' + esc(dateValue()) + ' · ' + esc(time) + ' PM · ' + esc(partyValue()) + '</p>' +
+            '<p style="color:var(--muted);font-size:.92rem;margin-bottom:1.2rem">On a live Mise restaurant this drops onto the host stand instantly, with confirmation SMS &amp; email — no per-cover fee. This is a demo booking.</p>' +
+            '<button class="btn btn--solid btn--block" data-close>Done</button>' +
+          '</div>';
+      }
+      function closeModal(){ modal.removeAttribute("open"); }
+
+      list.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-book]");
+        if (b) openBooking(b.getAttribute("data-book"), b.getAttribute("data-time"));
+      });
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal || e.target.closest("[data-close]")) return closeModal();
+        var c = e.target.closest("[data-confirm]");
+        if (c) {
+          var title = modalCard.querySelector("#mTitle").textContent;
+          var time = (modalCard.querySelector(".modal__meta").textContent.match(/· (\d+:\d+) PM/) || [])[1] || "";
+          confirmBooking(title, time);
+        }
+      });
+      document.addEventListener("keydown", function (e){ if (e.key === "Escape") closeModal(); });
+      form.addEventListener("submit", function (e){ e.preventDefault(); filter(); });
+      document.getElementById("q").addEventListener("input", filter);
+
+      // default date = today, initial render
+      (function initDate(){
+        var t = new Date();
+        var iso = t.getFullYear() + "-" + String(t.getMonth()+1).padStart(2,"0") + "-" + String(t.getDate()).padStart(2,"0");
+        document.getElementById("date").value = iso;
+      })();
+      filter();
+    })();
+  </script>
+</body>
+</html>

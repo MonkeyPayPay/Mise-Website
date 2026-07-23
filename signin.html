@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · Mise</title>
+  <meta name="description" content="Sign in to Mise — the restaurant operating system — or launch the live demo and explore a fully-loaded example restaurant with no signup." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth-body">
+  <main class="auth">
+    <!-- Brand panel -->
+    <aside class="auth__brand">
+      <a class="brand" href="/" aria-label="Mise home">
+        <svg class="brand__mark" width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+          <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.4" fill="currentColor"/>
+        </svg>
+        <span class="brand__word">Mise</span>
+      </a>
+      <div class="auth__brandcopy">
+        <h1>Everything in its place.</h1>
+        <p>The host stand, the pass and the office — one login, one source of truth. Sign in to your restaurant, or take the whole platform for a spin with our live demo.</p>
+        <ul class="ticks ticks--light">
+          <li>Live sales, inventory and P&amp;L in real time</li>
+          <li>Reservations, scheduling and procurement in one place</li>
+          <li>Role-scoped — staff never see what they shouldn't</li>
+        </ul>
+      </div>
+      <p class="auth__brandfoot">&larr; <a href="/">Back to mise-hospitality.com</a></p>
+    </aside>
+
+    <!-- Form panel -->
+    <section class="auth__panel">
+      <div class="auth__card">
+        <!-- Live demo first — the on-demand path -->
+        <div class="demo-cta">
+          <p class="demo-cta__eyebrow">On-demand demo · no signup</p>
+          <h2>Play with a real restaurant</h2>
+          <p class="demo-cta__sub">Step into <strong>Harbor &amp; Vine</strong>, a fully-loaded example bistro — 30 days of sales, tonight's reservation book, live checklists and the POS. Ring a check and watch the whole platform react.</p>
+          <a class="btn btn--solid btn--lg btn--block" href="https://app.mise-hospitality.com/demo" data-app-link>Enter the live demo &rsaquo;</a>
+        </div>
+
+        <div class="auth__divider"><span>or sign in to your restaurant</span></div>
+
+        <form class="auth__form" method="POST" action="https://app.mise-hospitality.com/login" data-app-form novalidate>
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@restaurant.com" required />
+
+          <label for="password">Password <span class="muted">or team PIN</span></label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+
+          <div class="auth__row">
+            <label class="checkbox"><input type="checkbox" name="remember" /> Keep me signed in</label>
+            <a href="#" class="auth__link">Forgot password?</a>
+          </div>
+
+          <button class="btn btn--outline btn--lg btn--block" type="submit">Sign in</button>
+          <p class="auth__note" data-auth-note></p>
+        </form>
+
+        <p class="auth__switch">New to Mise? <a href="/#demo">Book a demo</a> or <a href="/#pricing">see pricing</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+      // The operator app deploys at app.mise-hospitality.com. Until that host is live,
+      // intercept clicks so nothing looks broken and tell the visitor what's happening.
+      var APP_LIVE = false; // ← flip to true once app.mise-hospitality.com is deployed
+      var note = document.querySelector("[data-auth-note]");
+
+      function pending(msg) {
+        if (note) { note.textContent = msg; note.classList.add("is-show"); }
+      }
+
+      if (!APP_LIVE) {
+        var demo = document.querySelector("[data-app-link]");
+        if (demo) demo.addEventListener("click", function (e) {
+          e.preventDefault();
+          pending("🚧 The live demo comes online the moment the Mise app is deployed to app.mise-hospitality.com. Want early access now? Email hello@mise-hospitality.com.");
+          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        });
+        var form = document.querySelector("[data-app-form]");
+        if (form) form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          pending("Sign-in activates once the Mise app is deployed to app.mise-hospitality.com. For now, try the live demo above or email hello@mise-hospitality.com.");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
