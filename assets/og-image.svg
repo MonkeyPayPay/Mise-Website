@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1a17"/>
+      <stop offset="1" stop-color="#2a2620"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="120" r="360" fill="#d1852f" opacity="0.10"/>
+  <circle cx="150" cy="560" r="280" fill="#5b6b52" opacity="0.10"/>
+
+  <g transform="translate(90,150)">
+    <circle cx="34" cy="34" r="30" fill="none" stroke="#d1852f" stroke-width="4"/>
+    <circle cx="34" cy="34" r="15" fill="none" stroke="#d1852f" stroke-width="4"/>
+    <circle cx="34" cy="34" r="4.5" fill="#d1852f"/>
+    <text x="90" y="48" font-family="Georgia, serif" font-size="46" font-weight="600" fill="#faf6ef">Mise</text>
+  </g>
+
+  <text x="90" y="330" font-family="Georgia, serif" font-size="78" font-weight="600" fill="#faf6ef">Everything in its place.</text>
+  <text x="90" y="410" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#c9bda6">The all-in-one restaurant operating system.</text>
+  <text x="90" y="458" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#c9bda6">One platform. One login. One source of truth.</text>
+
+  <text x="90" y="560" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#d1852f" font-weight="700" letter-spacing="2">MISE-HOSPITALITY.COM</text>
+</svg>

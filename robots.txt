@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mise-hospitality.com/sitemap.xml
