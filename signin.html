@@ -73,27 +73,30 @@
   <script>
     (function () {
       "use strict";
-      // The operator app deploys at app.mise-hospitality.com. Until that host is live,
-      // intercept clicks so nothing looks broken and tell the visitor what's happening.
-      var APP_LIVE = false; // ← flip to true once app.mise-hospitality.com is deployed
+      // The operator app is live at app.mise-hospitality.com.
+      var APP_LIVE = true;
+      var APP = "https://app.mise-hospitality.com";
       var note = document.querySelector("[data-auth-note]");
+      function pending(msg) { if (note) { note.textContent = msg; note.classList.add("is-show"); } }
 
-      function pending(msg) {
-        if (note) { note.textContent = msg; note.classList.add("is-show"); }
-      }
+      var demo = document.querySelector("[data-app-link]"); // <a href> to APP/demo — works natively
+      var form = document.querySelector("[data-app-form]");
 
       if (!APP_LIVE) {
-        var demo = document.querySelector("[data-app-link]");
         if (demo) demo.addEventListener("click", function (e) {
           e.preventDefault();
-          pending("🚧 The live demo comes online the moment the Mise app is deployed to app.mise-hospitality.com. Want early access now? Email hello@mise-hospitality.com.");
-          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+          pending("🚧 The live demo comes online once the Mise app is deployed to app.mise-hospitality.com.");
         });
-        var form = document.querySelector("[data-app-form]");
         if (form) form.addEventListener("submit", function (e) {
           e.preventDefault();
+          pending("Sign-in activates once the app is deployed.");
+        });
+      } else if (form) {
+        // Real authentication happens inside the app — hand the sign-in off there.
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
           if (!form.checkValidity()) { form.reportValidity(); return; }
-          pending("Sign-in activates once the Mise app is deployed to app.mise-hospitality.com. For now, try the live demo above or email hello@mise-hospitality.com.");
+          window.location.href = APP + "/";
         });
       }
     })();
