@@ -419,3 +419,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .portfolio .mono.ok { color: var(--ok); }
 .portfolio .mono.warn { color: var(--terracotta); }
 .portfolio__foot { padding: .85rem 1.1rem; font-size: .82rem; color: var(--saffron-2); background: var(--paper); }
+
+/* -------- real product screenshots ("See it in action") -------- */
+.shotframe { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); background: var(--card); }
+.shotframe__bar { display: flex; align-items: center; gap: 7px; padding: .6rem .9rem; border-bottom: 1px solid var(--line); background: var(--paper); }
+.shotframe__bar .d { width: 10px; height: 10px; border-radius: 50%; }
+.shotframe__bar .d--r { background: #e06a54; } .shotframe__bar .d--a { background: #e2a944; } .shotframe__bar .d--g { background: #63a06a; }
+.shotframe__bar .t { margin-left: .5rem; font-size: .8rem; color: var(--muted); font-weight: 600; }
+.shotframe img { display: block; width: 100%; height: auto; }
+.shot { display: flex; flex-direction: column; }
+.shot__cap { color: var(--muted); font-size: .95rem; margin-top: .9rem; }
+.shot__cap strong { color: var(--ink); font-weight: 600; }
+.shot--feature { max-width: 940px; margin: 0 auto 2.5rem; }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .grid--3 { grid-template-columns: 1fr; } }
