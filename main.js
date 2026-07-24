@@ -82,6 +82,62 @@
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  // --- Count-up numbers + hero ticket "cascade" (progressive enhancement) ---
+  var prefersReduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-countup"));
+    if (isNaN(target)) return;
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    var pre = el.getAttribute("data-prefix") || "";
+    var suf = el.getAttribute("data-suffix") || "";
+    var fmt = function (v) {
+      return pre + v.toLocaleString(undefined, { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf;
+    };
+    if (prefersReduce) { el.textContent = fmt(target); return; }
+    var dur = 900, startTs = null;
+    el.textContent = fmt(0);
+    function step(ts) {
+      if (startTs === null) startTs = ts;
+      var p = Math.min((ts - startTs) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = fmt(target * eased);
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var ticket = document.querySelector("[data-ticket]");
+  function startTicket() {
+    if (!ticket || ticket.getAttribute("data-live")) return;
+    ticket.setAttribute("data-live", "1");
+    ticket.classList.add("is-live");
+    var nums = Array.prototype.slice.call(ticket.querySelectorAll("[data-countup]"));
+    nums.forEach(function (el, i) {
+      if (prefersReduce) { animateCount(el); }
+      else { setTimeout(function () { animateCount(el); }, 180 + i * 130); } // sync with row stagger
+    });
+  }
+  // any count-ups outside the ticket (future-proof) animate on their own visibility
+  var looseCounts = Array.prototype.slice.call(document.querySelectorAll("[data-countup]"))
+    .filter(function (el) { return !ticket || !ticket.contains(el); });
+
+  if ("IntersectionObserver" in window) {
+    if (ticket) {
+      var tio = new IntersectionObserver(function (entries, o) {
+        entries.forEach(function (e) { if (e.isIntersecting) { startTicket(); o.unobserve(e.target); } });
+      }, { threshold: 0.25 });
+      tio.observe(ticket);
+    }
+    if (looseCounts.length) {
+      var lio = new IntersectionObserver(function (entries, o) {
+        entries.forEach(function (e) { if (e.isIntersecting) { animateCount(e.target); o.unobserve(e.target); } });
+      }, { threshold: 0.4 });
+      looseCounts.forEach(function (el) { lio.observe(el); });
+    }
+  } else {
+    startTicket();
+    looseCounts.forEach(animateCount);
+  }
+
   // --- Current year in footer ---
   var yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = String(new Date().getFullYear());
