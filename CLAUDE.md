@@ -34,7 +34,7 @@ app and reference (don't rebuild) it.
 
 ---
 
-## What's live (as of 2026-07-23)
+## What's live (as of 2026-07-24)
 
 | Thing | Status |
 |---|---|
@@ -42,6 +42,7 @@ app and reference (don't rebuild) it.
 | **app.mise-hospitality.com** — the real (advanced) app | ✅ live, **demo mode** (no DB/integrations) |
 | HTTPS everywhere, custom domains | ✅ |
 | Lead capture, analytics, SEO, keep-warm | ✅ (see Integrations) |
+| Marketing-site audit build-out A1–A6, B1–B2, C1–C6, D3 | ✅ shipped (26-URL sitemap; see roadmap below) |
 
 ### Hosting & DNS (GoDaddy)
 - **Marketing site:** GitHub Pages, source = **branch `main` / root** (Settings → Pages).
