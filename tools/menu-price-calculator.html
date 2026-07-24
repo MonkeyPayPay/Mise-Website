@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Menu Price Calculator (Target Food Cost) | Mise</title>
+  <meta name="description" content="Free menu price calculator: enter a plate cost and a target food-cost %, get a suggested menu price and the resulting gross margin. Or let Mise re-cost your whole menu when a vendor price moves." />
+  <meta name="theme-color" content="#0e1218" />
+  <link rel="canonical" href="https://mise-hospitality.com/tools/menu-price-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mise" />
+  <meta property="og:title" content="Free Menu Price Calculator (Target Food Cost) | Mise" />
+  <meta property="og:description" content="Price a dish from its plate cost and a target food-cost percentage. Enter the numbers to see a suggested price and the margin it earns." />
+  <meta property="og:url" content="https://mise-hospitality.com/tools/menu-price-calculator.html" />
+  <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mise-hospitality.com/assets/og-image.png" />
+  <link rel="icon" href="/assets/app-icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/app-icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "96c9c8e0b3554e92bd772091fe69c026"}'></script>
+  <style>
+    .calc { max-width: 720px; margin: 2.5rem auto 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
+    .calc__body { padding: 1.8rem 1.7rem; display: grid; gap: 1.1rem; }
+    .calc .field { display: grid; gap: .4rem; }
+    .calc label { font-weight: 600; font-size: .95rem; color: var(--ink-2); }
+    .calc label .hint { display:block; font-weight:400; color: var(--muted); font-size:.82rem; margin-top:.15rem; }
+    .calc .inp { display: flex; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0 .9rem; }
+    .calc .inp .pre { color: var(--muted); font-weight: 600; }
+    .calc input[type=number] { width: 100%; background: transparent; border: 0; color: var(--ink); font: inherit; font-size: 1.05rem; padding: .75rem .5rem; outline: none; -moz-appearance: textfield; }
+    .calc input::-webkit-outer-spin-button, .calc input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .calc .inp .suf { color: var(--muted); font-weight: 600; }
+    .calc__out { background: var(--ink-deep); color: var(--ink); padding: 1.6rem 1.7rem; display: grid; gap: 1rem; }
+    .calc__result { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .calc__result .k { color: rgba(250,246,239,.72); font-weight: 500; }
+    .calc__result .v { font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--saffron-2); font-weight: 500; }
+    .calc__result .v.small { font-size: 1.5rem; color: var(--ink); }
+    .calc__verdict { font-size: .95rem; padding-top: .9rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .calc__verdict.good { color: var(--ok); }
+    .calc__verdict.warn { color: var(--saffron-2); }
+    .calc__verdict.bad { color: var(--terracotta); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Mise home">
+        <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
+        <span class="brand__word">Mise</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/#platform">Platform</a>
+        <a href="/pos.html">POS</a>
+        <a href="/reservations.html">Guest Center</a>
+        <a href="/#pricing">Pricing</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="/signin.html">Sign in</a>
+        <a class="btn btn--solid" href="/#demo">Book a demo</a>
+      </div>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="/#platform">Platform</a>
+      <a href="/pos.html">POS</a>
+      <a href="/reservations.html">Guest Center</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/signin.html">Sign in</a>
+      <a class="btn btn--solid btn--block" href="/#demo">Book a demo</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section">
+      <div class="container reveal">
+        <div class="narrow center" style="margin-inline:auto">
+          <p class="eyebrow">Free tool</p>
+          <h1 class="section__title" style="font-size:clamp(2rem,5vw,3rem)">Menu price calculator</h1>
+          <p class="section__lede" style="margin-inline:auto">Price a dish from its plate cost and a target food-cost percentage. Enter the numbers to see a suggested price and the margin it earns.</p>
+        </div>
+        <form class="calc" id="calc" autocomplete="off">
+          <div class="calc__body">
+            <div class="field"><label for="plate">Plate cost<span class="hint">Total ingredient cost of the dish</span></label><div class="inp"><span class="pre">$</span><input type="number" id="plate" min="0" step="any" inputmode="decimal" /></div></div>
+            <div class="field"><label for="target">Target food-cost %<span class="hint">The food-cost you want to hit (e.g. 30)</span></label><div class="inp"><input type="number" id="target" min="0" step="any" inputmode="decimal" value="30" /><span class="suf">%</span></div></div>
+          </div>
+          <div class="calc__out" aria-live="polite">
+            <div class="calc__result"><span class="k">Suggested menu price</span><span class="v" id="o_price">$0.00</span></div>
+            <div class="calc__result"><span class="k">Gross margin / plate</span><span class="v small" id="o_margin">$0.00</span></div>
+            <div class="calc__verdict" id="o_verdict">Enter a plate cost and target food-cost %.</div>
+          </div>
+        </form>
+        <p class="cmp-note" style="max-width:720px;margin:1rem auto 0;text-align:center">Estimates for planning only. Your accountant&rsquo;s numbers are the source of truth — or let Mise compute these live from your real data.</p>
+      </div>
+    </section>
+
+    <section class="section section--muted">
+      <div class="container narrow reveal">
+        <p class="eyebrow">The formula</p>
+        <h2 class="section__title">Menu price = Plate cost ÷ Target food-cost %</h2>
+        <p class="section__lede">Divide a dish&rsquo;s plate cost by your target food-cost percentage (as a decimal) to get the price that hits that target. A $4.50 plate at a 30% target prices to $15.00, keeping $10.50 toward labor, overhead and profit. Menu-price math is only as good as your plate cost — and plate cost moves every time a vendor price does. Mise re-costs your whole menu the instant a price changes, and shows you which dishes are stars and which are dogs.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="container narrow center reveal">
+        <p class="eyebrow">Stop doing this by hand</p>
+        <h2 class="section__title">Mise keeps this number live</h2>
+        <p class="section__lede">This calculator is a snapshot. Mise computes it continuously from your real sales, invoices and punches — so you see it move during service, not once a month.</p>
+        <p style="margin-top:1.6rem"><a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">Try the live demo</a> &nbsp; <a class="btn btn--outline btn--lg" href="/resources.html">More free tools</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="/" aria-label="Mise home">
+          <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
+          <span class="brand__word">Mise</span>
+        </a>
+        <p class="footer__tag">Everything in its place.</p>
+      </div>
+      <nav class="footer__cols" aria-label="Footer">
+        <div>
+          <h4>Product</h4>
+          <a href="/#platform">Modules</a>
+          <a href="/pos.html">POS</a>
+          <a href="/reservations.html">Guest Center</a>
+          <a href="/integrations.html">Integrations</a>
+          <a href="/security.html">Security</a>
+          <a href="/#pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <a href="/solutions/full-service.html">Full-service</a>
+          <a href="/solutions/bars.html">Bars &amp; nightlife</a>
+          <a href="/solutions/cafe-quick-service.html">Cafés &amp; quick-service</a>
+          <a href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/about.html">About</a>
+          <a href="/resources.html">Resources &amp; tools</a>
+          <a href="/tools/prime-cost-calculator.html">Free calculators</a>
+          <a href="/#demo">Book a demo</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/compare/toast.html">vs Toast</a>
+          <a href="/compare/restaurant365.html">vs Restaurant365</a>
+          <a href="/compare/7shifts.html">vs 7shifts</a>
+          <a href="/compare/sevenrooms.html">vs SevenRooms</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span data-year>2026</span> Mise Hospitality. All rights reserved. &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a></p>
+      <p><a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a></p>
+    </div>
+  </footer>
+  <script src="/main.js" defer></script>
+  <script>
+  var $=function(id){return document.getElementById(id);};
+  function money(n){return '$'+n.toFixed(2);}
+  function calc(){
+    var p=parseFloat($('plate').value)||0,t=parseFloat($('target').value)||0;
+    var v=$('o_verdict');
+    if(p<=0||t<=0){ $('o_price').textContent='$0.00'; $('o_margin').textContent='$0.00'; v.className='calc__verdict'; v.textContent='Enter a plate cost and target food-cost %.'; return; }
+    var price=p/(t/100); var margin=price-p;
+    $('o_price').textContent=money(price); $('o_margin').textContent=money(margin);
+    if(t<=35){ v.className='calc__verdict good'; v.textContent='At a '+t.toFixed(0)+'% target, this dish keeps '+money(margin)+' toward labor, overhead and profit.'; }
+    else { v.className='calc__verdict warn'; v.textContent='A '+t.toFixed(0)+'% food-cost target is on the high side — consider whether the price supports your labor and overhead.'; }
+  }
+  ['plate','target'].forEach(function(id){$(id).addEventListener('input',calc);});
+  calc();
+  </script>
+</body>
+</html>
