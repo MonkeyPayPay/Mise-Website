@@ -514,3 +514,47 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fair__panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.7rem 1.6rem; }
 .fair__panel h3 { font-size: 1.25rem; margin-bottom: .8rem; }
 .fair__panel--mise { border-color: rgba(232,179,75,.35); background: linear-gradient(180deg, rgba(232,179,75,.06), transparent 70%), var(--card); }
+
+/* ============================================================
+   Pre-launch preview gate (soft). Remove this block + gate.js +
+   the two <script> lines injected into each <head> to go public.
+   ============================================================ */
+html.mise-locked { overflow: hidden; }
+html.mise-locked body > *:not(#mise-gate) { display: none !important; }
+#mise-gate {
+  position: fixed; inset: 0; z-index: 99999;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  background:
+    radial-gradient(1000px 460px at 78% -8%, rgba(209,133,47,.16), transparent 60%),
+    radial-gradient(760px 460px at 4% 8%, rgba(91,107,82,.10), transparent 55%),
+    var(--paper, #0e1218);
+  color: var(--ink, #e9edf3); font-family: var(--font-sans, "Inter", system-ui, sans-serif);
+}
+.mg__card {
+  width: 100%; max-width: 400px; text-align: center;
+  background: var(--card, #171e2a); border: 1px solid var(--line, rgba(139,150,168,.16));
+  border-radius: var(--radius, 14px); box-shadow: var(--shadow-md, 0 18px 50px rgba(0,0,0,.5));
+  padding: 2.4rem 2rem;
+}
+.mg__mark { margin: 0 auto .9rem; border-radius: 9px; box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.mg__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 700; color: var(--saffron-2, #f0c265); margin-bottom: .6rem; }
+.mg__title { font-family: var(--font-serif, Georgia, serif); font-weight: 500; font-size: 1.6rem; line-height: 1.15; margin-bottom: .5rem; }
+.mg__lede { color: var(--muted, #8b96a8); font-size: .98rem; margin-bottom: 1.4rem; }
+.mg__form { display: flex; gap: .5rem; }
+.mg__input {
+  flex: 1; min-width: 0; background: var(--paper, #0e1218); border: 1px solid var(--line, rgba(139,150,168,.16));
+  border-radius: 999px; color: var(--ink, #e9edf3); font: inherit; font-size: 1rem; padding: .7rem 1.1rem; outline: none;
+  transition: border-color var(--dur-base, .22s) var(--ease-out, ease);
+}
+.mg__input:focus-visible { border-color: var(--saffron, #e8b34b); }
+.mg__btn {
+  flex: none; background: var(--saffron, #e8b34b); color: var(--ink-deep, #080b10); font: inherit; font-weight: 600;
+  border: 0; border-radius: 999px; padding: .7rem 1.3rem; cursor: pointer;
+  transition: background var(--dur-base, .22s) var(--ease-out, ease), transform var(--dur-fast, .15s) var(--ease-out, ease);
+}
+.mg__btn:hover { background: var(--brand-hi, #f2c76b); transform: translateY(-1px); }
+.mg__btn:focus-visible { outline: 3px solid var(--saffron, #e8b34b); outline-offset: 2px; }
+.mg__err { color: var(--terracotta, #ef7365); font-size: .9rem; margin-top: .9rem; }
+.mg__card--shake { animation: mgShake .4s var(--ease-out, ease); }
+@keyframes mgShake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(7px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(3px)} }
+@media (prefers-reduced-motion: reduce) { .mg__card--shake { animation: none; } }

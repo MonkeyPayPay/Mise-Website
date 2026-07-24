@@ -1,4 +1,8 @@
+# Pre-launch: the site is behind a preview gate and not ready for the public.
+# TO GO PUBLIC: change "Disallow: /" back to "Allow: /", re-enable the Sitemap
+# line, and remove the preview gate (delete gate.js, the #mise-gate CSS block in
+# styles.css, and the two gate <script> lines in each page's <head>).
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: https://mise-hospitality.com/sitemap.xml
+# Sitemap: https://mise-hospitality.com/sitemap.xml

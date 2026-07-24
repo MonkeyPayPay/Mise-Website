@@ -44,6 +44,20 @@ app and reference (don't rebuild) it.
 | Lead capture, analytics, SEO, keep-warm | ✅ (see Integrations) |
 | Marketing-site audit build-out A1–A6, B1–B2, C1–C6, D3 | ✅ shipped (26-URL sitemap; see roadmap below) |
 | Audit v2 fixes: mega-menu IA, breadcrumb/FAQ schema, on-dark+motion tokens, hero animation, WebP | ✅ shipped (see docs/WEBSITE_AUDIT_2.md) |
+| **Pre-launch preview gate (password `1234`)** | 🔒 **ACTIVE — site not public** (see "Preview gate" below) |
+
+### Preview gate (soft, pre-launch) — ACTIVE
+The site is behind a **client-side password gate** (password **`1234`**) until the owner is ready to
+go public. It is a *soft* gate (deters casual visitors; the HTML is still technically fetchable — not
+real security). Pieces:
+- `gate.js` — builds the branded overlay, checks the password, stores `mise_gate_ok=1` in
+  `localStorage` on success.
+- `styles.css` — `#mise-gate` block + the critical rule `html.mise-locked body > *:not(#mise-gate){display:none}`.
+- Each page `<head>` — two `<script>` lines (an inline `mise-locked` class-adder + `/gate.js`).
+- `robots.txt` — set to `Disallow: /` while gated.
+- **TO GO PUBLIC:** delete `gate.js`, remove the `#mise-gate` CSS block, strip the two gate `<script>`
+  lines from every `<head>`, and restore `robots.txt` to `Allow: /` + the Sitemap line. (For *real*
+  lock-down instead: Cloudflare Access, or unpublish Pages.)
 
 ### Hosting & DNS (GoDaddy)
 - **Marketing site:** GitHub Pages, source = **branch `main` / root** (Settings → Pages).
