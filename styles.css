@@ -120,6 +120,33 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .mobile-menu { display: none; flex-direction: column; gap: .25rem; padding: 12px 24px 20px; border-bottom: 1px solid var(--line); background: var(--paper); }
 .mobile-menu a { padding: .6rem 0; font-weight: 500; border-bottom: 1px solid var(--line); }
 .mobile-menu a:last-child { border-bottom: 0; margin-top: .5rem; }
+.mobile-menu__h { margin: .9rem 0 .1rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; color: var(--muted); }
+.mobile-menu__h:first-child { margin-top: 0; }
+
+/* -------- mega-menu (primary nav dropdowns) -------- */
+.navi { position: relative; display: flex; }
+.navi__trigger {
+  display: inline-flex; align-items: center; gap: .32rem; font: inherit; font-weight: 500;
+  font-size: .95rem; color: var(--ink-2); background: none; border: 0; cursor: pointer; padding: 0;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.navi__trigger:hover, .navi.is-open .navi__trigger { color: var(--saffron-2); }
+.navi__trigger svg { width: 11px; height: 11px; transition: transform var(--dur-base) var(--ease-out); }
+.navi:hover .navi__trigger svg, .navi.is-open .navi__trigger svg { transform: rotate(180deg); }
+.navi__panel {
+  position: absolute; top: calc(100% + 16px); left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 232px; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-md); padding: .5rem;
+  opacity: 0; visibility: hidden; z-index: 120;
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.navi__panel::before { content: ""; position: absolute; top: -16px; left: 0; right: 0; height: 16px; } /* hover bridge */
+.navi:hover .navi__panel, .navi.is-open .navi__panel { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.navi__panel a { display: block; padding: .5rem .7rem; border-radius: var(--radius-sm); color: var(--ink-2); font-size: .92rem; font-weight: 500; white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+.navi__panel a:hover, .navi__panel a:focus-visible { background: rgba(255,255,255,.05); color: var(--saffron-2); outline: none; }
+@media (prefers-reduced-motion: reduce) { .navi__panel, .navi__trigger svg { transition: none; } }
 
 /* -------- eyebrow / section scaffolding -------- */
 .eyebrow {

@@ -27,6 +27,42 @@
     });
   }
 
+  // --- Mega-menu dropdowns (click/keyboard; hover is CSS) ---
+  var navis = Array.prototype.slice.call(document.querySelectorAll(".navi"));
+  if (navis.length) {
+    var closeAll = function (except) {
+      navis.forEach(function (n) {
+        if (n === except) return;
+        n.classList.remove("is-open");
+        var t = n.querySelector(".navi__trigger");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    };
+    navis.forEach(function (n) {
+      var trigger = n.querySelector(".navi__trigger");
+      if (!trigger) return;
+      trigger.addEventListener("click", function () {
+        var open = n.classList.toggle("is-open");
+        trigger.setAttribute("aria-expanded", String(open));
+        closeAll(n);
+      });
+    });
+    // Escape closes and returns focus to the open trigger
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      var open = document.querySelector(".navi.is-open");
+      if (open) {
+        var t = open.querySelector(".navi__trigger");
+        closeAll(null);
+        if (t) t.focus();
+      }
+    });
+    // Click outside closes
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".navi")) closeAll(null);
+    });
+  }
+
   // --- Scroll reveal ---
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {

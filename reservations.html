@@ -59,26 +59,76 @@
   <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "96c9c8e0b3554e92bd772091fe69c026"}'></script>
 </head>
 <body>
-  <header class="nav">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="/" aria-label="Mise home">
         <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
         <span class="brand__word">Mise</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="/#platform">Platform</a>
-        <a href="/pos.html">POS</a>
-        <a href="/reservations.html">Guest Center</a>
-        <a href="/#pricing">Pricing</a>
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/#platform">Modules</a>
+          <a role="menuitem" href="/pos.html">POS</a>
+          <a role="menuitem" href="/reservations.html">Guest Center</a>
+          <a role="menuitem" href="/integrations.html">Integrations</a>
+          <a role="menuitem" href="/security.html">Security</a>
+        </div>
+      </div>
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Solutions <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/solutions/full-service.html">Full-service</a>
+          <a role="menuitem" href="/solutions/bars.html">Bars &amp; nightlife</a>
+          <a role="menuitem" href="/solutions/cafe-quick-service.html">Caf&eacute;s &amp; quick-service</a>
+          <a role="menuitem" href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+        </div>
+      </div>
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Resources <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/resources.html">Free tools &amp; playbooks</a>
+          <a role="menuitem" href="/tools/prime-cost-calculator.html">Calculators</a>
+          <a role="menuitem" href="/compare/toast.html">Compare vs competitors</a>
+          <a role="menuitem" href="/about.html">About</a>
+        </div>
+      </div>
+      <a href="/#pricing">Pricing</a>
       </nav>
       <div class="nav__actions">
         <a class="btn btn--ghost" href="/signin.html">Sign in</a>
-        <a class="btn btn--solid" href="/#demo">For restaurants</a>
+        <a class="btn btn--solid" href="/#demo">Book a demo</a>
       </div>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <p class="mobile-menu__h">Product</p>
+      <a href="/#platform">Modules</a>
+      <a href="/pos.html">POS</a>
+      <a href="/reservations.html">Guest Center</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/security.html">Security</a>
+      <p class="mobile-menu__h">Solutions</p>
+      <a href="/solutions/full-service.html">Full-service</a>
+      <a href="/solutions/bars.html">Bars &amp; nightlife</a>
+      <a href="/solutions/cafe-quick-service.html">Caf&eacute;s &amp; quick-service</a>
+      <a href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+      <p class="mobile-menu__h">Resources</p>
+      <a href="/resources.html">Free tools &amp; playbooks</a>
+      <a href="/tools/prime-cost-calculator.html">Calculators</a>
+      <a href="/compare/toast.html">Compare vs competitors</a>
+      <a href="/about.html">About</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/signin.html">Sign in</a>
+      <a class="btn btn--solid btn--block" href="/#demo">Book a demo</a>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="gc-hero">
       <div class="container">
         <p class="eyebrow">Guest Center</p>
