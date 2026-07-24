@@ -43,6 +43,7 @@ app and reference (don't rebuild) it.
 | HTTPS everywhere, custom domains | ✅ |
 | Lead capture, analytics, SEO, keep-warm | ✅ (see Integrations) |
 | Marketing-site audit build-out A1–A6, B1–B2, C1–C6, D3 | ✅ shipped (26-URL sitemap; see roadmap below) |
+| Audit v2 fixes: mega-menu IA, breadcrumb/FAQ schema, on-dark+motion tokens, hero animation, WebP | ✅ shipped (see docs/WEBSITE_AUDIT_2.md) |
 
 ### Hosting & DNS (GoDaddy)
 - **Marketing site:** GitHub Pages, source = **branch `main` / root** (Settings → Pages).
@@ -72,6 +73,13 @@ app and reference (don't rebuild) it.
 Dark ink backgrounds lit by warm **brass**; no paint, brass = key actions/indicators.
 - Tokens in `styles.css :root`: `--paper #0e1218` (bg), `--card #171e2a`, `--ink #e9edf3` (text),
   `--ink-deep #080b10` (dark bands/footer), `--saffron #e8b34b` (brass), `--muted #8b96a8`.
+  Plus (audit v2): `--on-dark`/`-2`/`-3`/`-faint` (cream text on dark bands), `--line-strong`,
+  and a motion layer `--dur-fast/base/slow` + `--ease-out`/`--ease-in-out` — route transitions through these.
+- **Nav is a mega-menu** (Product/Solutions/Resources dropdowns + Pricing), same markup on every page;
+  accessible (button+aria-expanded, hover=CSS, click/Esc/click-out=main.js). Hero ticket animates a
+  staggered "one closed check" cascade + count-up (main.js), all gated on `prefers-reduced-motion`.
+- App screenshots live in `assets/shots/*.webp` (converted from PNG, ~75% lighter); `og-image.png`
+  stays PNG for social scrapers.
 - Fonts: **Fraunces** (display serif) + **Inter** (UI sans), via Google Fonts.
 - **Brand assets (the app's real files, in `/assets`):** `app-icon.png` (metal-M icon) = favicon +
   nav/footer logo mark; `logo-horizontal.webp` / `logo-stacked.webp` also available.

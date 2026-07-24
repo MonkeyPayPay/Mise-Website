@@ -1,5 +1,29 @@
 # Mise Website — Triple-Pass Elite Design & Technical Audit (v2)
 
+> **Update — fixes applied 2026-07-24 (commits `cf6bc9d`→`28b7afe`).** The following audit findings
+> are now resolved and live on `main`:
+> - **§10.1 / §3 🔴 security.html mobile overflow** — fixed (button relabeled; clean at 375px).
+> - **§6 IA / §1.1 🟠 nav never scaled** — rebuilt as a **mega-menu** (Product/Solutions/Resources +
+>   Pricing) across all 27 content pages; also **fixed the 9 feature/compare pages that had no mobile
+>   nav at all**, and added nav to privacy/terms/404. Accessible (button+aria-expanded, Esc, click-out).
+> - **§10.3 / §3 🟠 structured data** — BreadcrumbList on all 25 subpages; FAQPage on the 4 calculators.
+> - **§10.4 canonicals/meta** — added canonicals to signin/privacy/terms; meta descriptions to
+>   privacy/terms/404; homepage meta trimmed 257→162 chars.
+> - **§10.5 feature→compare links** — each feature "Replaces" band now links its comparison page.
+> - **§5 / §12 palette + tokens** — added the `--on-dark` ramp (migrated 12+ ad-hoc creams), defined
+>   `--line-strong`, added motion tokens (`--dur-*`, `--ease-*`) and routed transitions through them.
+> - **§6 Motion 🟠 static hero** — the ticket now **animates the "one closed check" cascade** with a
+>   staggered row reveal + count-up on the numbers; fully respects `prefers-reduced-motion`.
+> - **§10.6 / §4 perf** — screenshot payload converted **PNG→WebP, 2.9MB→0.69MB (−75%)**.
+>
+> **Still open (need accounts/decisions, not code):** a real `/pricing` page, social proof (D1),
+> calendar booking (D2), ROI calculator, guides behind `/resources`, deeper spacing/type/radii scale
+> consolidation (§5), and the optional platform move for security headers (D5). The warm sub-palette
+> flagged in §5 was, on inspection, an intentional accent for the POS/ticket mocks — left as-is.
+
+---
+
+
 **Date:** 2026-07-24 · **Scope:** the full `MonkeyPayPay/Mise-Website` marketing site (28 HTML pages,
 `styles.css` 463 lines, `main.js` 114 lines), rendered and inspected locally.
 **Method:** code read line-by-line; every page rendered over HTTP via headless Chromium at 1440 / 768 / 375;
