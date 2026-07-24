@@ -81,13 +81,31 @@ index.html         Landing (hero, modules, POS, Guest Center, pricing, FAQ, demo
 pos.html           POS product page
 reservations.html  Guest Center (restaurant search; native Mise book mock + deep-links to OpenTable/Resy/Google)
 signin.html        Branded sign-in page (links to the app)
+about.html         Company / "one system, not seven" thesis (D3)
+integrations.html  Integrations directory — payments/messaging/identity/accounting/POS (C3)
+security.html      Security & trust — controls + honest "today vs roadmap" (C4)
+resources.html     Resources hub linking the free tools + feature "playbooks" (C5)
 privacy.html/terms.html  Real legal drafts (flagged for counsel review)
 404.html
-styles.css         All styling + candlelight tokens
+features/          Per-module SEO pages (C1): reservations, scheduling, inventory, financials, events
+compare/           Competitor "vs" pages (C2): toast, restaurant365, 7shifts, sevenrooms
+solutions/         Segment pages (C6): full-service, bars, cafe-quick-service, multi-unit-groups
+tools/             Free interactive calculators (C5): prime-cost, food-cost, labor-cost, menu-price
+styles.css         All styling + candlelight tokens (+ .cmp comparison table, .fair panels, .calc)
 main.js            Mobile nav, scroll-reveal, Web3Forms lead form
-assets/            app-icon.png, logo-*.webp, og-image.svg, (old favicon.svg unused)
+assets/            app-icon.png, logo-*.webp, og-image.png, shots/ (real app screenshots)
 CNAME, robots.txt, sitemap.xml
 ```
+Shared page chrome (nav/head/full-footer) for features/compare/solutions/tools/etc. is generated
+from Python scripts kept in the session scratchpad (genfeatures.py, gencompare.py, gensite.py) —
+one-shot generators, not a build step; the committed HTML is the source of truth.
+
+### Website audit roadmap status (see docs/WEBSITE_AUDIT.md)
+- **Done:** A1–A6, B1–B2, C1 (feature pages), C2 (comparison pages), C3 (integrations),
+  C4 (security), C5 (resources + 4 calculators), C6 (solutions/segments), D3 (about).
+- **Not done / needs owner or accounts:** B3 (tour video/GIF), B4 (one-click demo — app-side),
+  D1 (social proof — needs real customers), D2 (Calendly — needs account),
+  D4 (partner program), D5 (build-system migration), D6 (counsel review of legal pages).
 All marketing "Try the live demo"/"Sign in" links → `https://app.mise-hospitality.com/`
 (the real app's login). "Start free trial" → `#demo` (Book-a-demo form; the real app has **no
 self-serve signup** — onboarding is invite/operator-provisioned).
