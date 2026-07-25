@@ -119,9 +119,15 @@ main.js            Mobile nav, scroll-reveal, Web3Forms lead form
 assets/            app-icon.png, logo-*.webp, og-image.png, shots/ (real app screenshots)
 CNAME, robots.txt, sitemap.xml
 ```
-Shared page chrome (nav/head/full-footer) for features/compare/solutions/tools/etc. is generated
-from Python scripts kept in the session scratchpad (genfeatures.py, gencompare.py, gensite.py) —
-one-shot generators, not a build step; the committed HTML is the source of truth.
+Shared page chrome (nav/head/full-footer) for features/compare/solutions/tools/etc. was originally
+generated from Python scripts kept in the session scratchpad (genfeatures.py, gencompare.py,
+gensite.py) — one-shot generators, not a build step; **the committed HTML is the source of truth.**
+
+> ⚠️ **The generators are now STALE — do NOT re-run them.** After generation, the whole site was
+> post-processed in place (scripts: `rewrite_nav.py`, `seo.py`, `webp.cjs`, `gate` injection) to add
+> the **mega-menu nav**, **BreadcrumbList/FAQ JSON-LD**, **canonicals**, **WebP images**, the
+> **feature→compare links**, and the **preview gate**. Re-running genfeatures/gencompare/gensite would
+> silently revert all of that. Edit the committed HTML directly (or write new post-processing scripts).
 
 ### Website audit roadmap status (see docs/WEBSITE_AUDIT.md)
 - **Done:** A1–A6, B1–B2, C1 (feature pages), C2 (comparison pages), C3 (integrations),
@@ -129,6 +135,13 @@ one-shot generators, not a build step; the committed HTML is the source of truth
 - **Not done / needs owner or accounts:** B3 (tour video/GIF), B4 (one-click demo — app-side),
   D1 (social proof — needs real customers), D2 (Calendly — needs account),
   D4 (partner program), D5 (build-system migration), D6 (counsel review of legal pages).
+- **Audit v2 done (2026-07-24, see docs/WEBSITE_AUDIT_2.md):** fixed security.html mobile overflow;
+  mega-menu IA (+ fixed feature/compare pages that had NO mobile nav); BreadcrumbList on all subpages
+  + FAQ schema on calculators; canonicals/meta on legal+404; homepage meta trim; `--on-dark`+motion
+  tokens + `--line-strong`; animated hero ticket (cascade + count-up); PNG→WebP (−75%).
+- **Audit v2 still open (website side, need decisions/accounts, not code):** a real `/pricing` page;
+  ROI "what Mise saves you" calculator; guides/articles behind `/resources`; deeper spacing/type/radii
+  scale consolidation; the intentional warm sub-palette (POS/ticket mocks) was left as-is on purpose.
 All marketing "Try the live demo"/"Sign in" links → `https://app.mise-hospitality.com/`
 (the real app's login). "Start free trial" → `#demo` (Book-a-demo form; the real app has **no
 self-serve signup** — onboarding is invite/operator-provisioned).
