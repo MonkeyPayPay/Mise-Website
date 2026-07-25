@@ -115,19 +115,27 @@ compare/           Competitor "vs" pages (C2): toast, restaurant365, 7shifts, se
 solutions/         Segment pages (C6): full-service, bars, cafe-quick-service, multi-unit-groups
 tools/             Free interactive calculators (C5): prime-cost, food-cost, labor-cost, menu-price
 styles.css         All styling + candlelight tokens (+ .cmp comparison table, .fair panels, .calc)
-main.js            Mobile nav, scroll-reveal, Web3Forms lead form
-assets/            app-icon.png, logo-*.webp, og-image.png, shots/ (real app screenshots)
+main.js            Mobile nav, mega-menu dropdowns, scroll-reveal, hero count-up, Web3Forms lead form
+gate.js            Pre-launch preview gate overlay (password 1234)
+scripts/           apply_chrome.py (idempotent nav/footer/gate maintenance) + README
+assets/            app-icon.png, logo-*.webp, og-image.png, shots/*.webp (real app screenshots)
 CNAME, robots.txt, sitemap.xml
 ```
-Shared page chrome (nav/head/full-footer) for features/compare/solutions/tools/etc. was originally
-generated from Python scripts kept in the session scratchpad (genfeatures.py, gencompare.py,
-gensite.py) — one-shot generators, not a build step; **the committed HTML is the source of truth.**
+All 27 content pages share one **full 4-column footer** (nav/footer/gate kept in sync by
+`scripts/apply_chrome.py`); `signin.html` keeps its minimal auth layout.
+**No build step. The committed HTML is the source of truth.** Shared chrome (nav / footer / gate /
+main.js) is maintained by **`scripts/apply_chrome.py`** — a committed, **idempotent** tool that edits
+the committed HTML *in place* (it never regenerates page content). Run `python3 scripts/apply_chrome.py`
+to re-apply canonical chrome to every page, or `--check` to report drift. To change nav/footer
+site-wide, edit the `HEADER`/`FOOTER` constants in that script and run it. See `scripts/README.md`.
 
-> ⚠️ **The generators are now STALE — do NOT re-run them.** After generation, the whole site was
-> post-processed in place (scripts: `rewrite_nav.py`, `seo.py`, `webp.cjs`, `gate` injection) to add
-> the **mega-menu nav**, **BreadcrumbList/FAQ JSON-LD**, **canonicals**, **WebP images**, the
-> **feature→compare links**, and the **preview gate**. Re-running genfeatures/gencompare/gensite would
-> silently revert all of that. Edit the committed HTML directly (or write new post-processing scripts).
+> ✅ **Fixed (was: "stale generators" gotcha).** The site was first bootstrapped by one-shot
+> generators (`genfeatures/gencompare/gensite.py`) that lived only in the scratchpad and regenerated
+> whole pages from scratch — re-running them would have wiped the nav/gate/SEO added later. Those are
+> **retired**; `scripts/apply_chrome.py` replaces them with a safe in-place tool. Edit HTML directly
+> for content; use the script for chrome. (Per-page one-offs like breadcrumbs/canonicals were applied
+> by throwaway scratchpad scripts `rewrite_nav.py`/`seo.py`/`webp.cjs`; those are folded into history —
+> the committed HTML already reflects them.)
 
 ### Website audit roadmap status (see docs/WEBSITE_AUDIT.md)
 - **Done:** A1–A6, B1–B2, C1 (feature pages), C2 (comparison pages), C3 (integrations),
