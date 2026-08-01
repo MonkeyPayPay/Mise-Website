@@ -200,6 +200,9 @@ Built per the owner's "PROMPT B" brief; **owner reviews and merges to `main` the
   `assets/pricing-model.js`, version `launch-2026-08-approved`). Branch **merged to `main`**
   — the full product site is live at mise-hospitality.com **behind the gate (pw 1234)** for
   owner review. `docs/DEMO-DEPLOY.md` = pre-filled runbook for the owner's Render/GoDaddy
-  clicks. Remaining before public launch: (1) owner stands up the demo node per that runbook,
-  (2) owner says **"launch"** → Claude un-gates + restores robots.txt + verifies in one pass.
+  clicks. **Demo node is LIVE (owner confirmed + browser-verified 2026-08-01** — this sandbox
+  can't probe the public internet, so live-endpoint checks are the owner's). Final internal
+  link-check passed: all 11 data-demo keys resolve, zero broken internal links, chrome
+  canonical. **Remaining before public launch: owner says "launch"** → Claude un-gates +
+  restores robots.txt + verifies in one pass.
   TestFlight/Play links remain TODO-DEMO-URL (non-blocking; buttons render disabled).
