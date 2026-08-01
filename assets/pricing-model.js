@@ -4,6 +4,10 @@
    §4 gating matrix + limits ladder, §5 launch defaults, §6 annual
    discount & display rule) and DESIGN-PLAN-BUILDER.md.
 
+   PRICES APPROVED by the owner 2026-08-01 (this chat) — these launch
+   defaults are now the launch prices. Future changes: edit here AND the
+   platform price book together.
+
    RULES THIS FILE ENFORCES (from the design docs):
    - ONE price model: tiers are named presets over the same
      primitives the builder uses; both price via computePrice().
@@ -19,7 +23,7 @@
   "use strict";
 
   var BOOK = {
-    version: "launch-defaults-2026-08",
+    version: "launch-2026-08-approved",
     currency: "USD",
     annualDiscountPct: 15,
 

@@ -196,5 +196,10 @@ Built per the owner's "PROMPT B" brief; **owner reviews and merges to `main` the
   point at `/demo.html` (signin.html still goes to the real app login).
 - **`CLAIMS-TO-VERIFY.md`** — unverifiable claims (EMV/tap = not in code; native binaries; etc.)
   and what to do to publish them. **`docs/SITE-BASELINE.md`** — pre-build inventory.
-- Owner to-dos before this goes live: stand up the demo deployment/DNS per DEMO-URLS.md,
-  fill TestFlight/Play links in `assets/demo-urls.js`, sign off launch prices.
+- **Launch state (2026-08-01):** prices **APPROVED** (design-doc launch defaults locked in
+  `assets/pricing-model.js`, version `launch-2026-08-approved`). Branch **merged to `main`**
+  — the full product site is live at mise-hospitality.com **behind the gate (pw 1234)** for
+  owner review. `docs/DEMO-DEPLOY.md` = pre-filled runbook for the owner's Render/GoDaddy
+  clicks. Remaining before public launch: (1) owner stands up the demo node per that runbook,
+  (2) owner says **"launch"** → Claude un-gates + restores robots.txt + verifies in one pass.
+  TestFlight/Play links remain TODO-DEMO-URL (non-blocking; buttons render disabled).
