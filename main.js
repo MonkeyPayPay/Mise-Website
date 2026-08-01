@@ -169,8 +169,8 @@
       // Not configured yet → mailto fallback so a lead is never lost.
       if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY") {
         var body = "Name: " + name + "%0ARestaurant: " + rest + "%0AEmail: " + email + "%0APhone: " + phone + "%0ALocations: " + locations + "%0A" + message;
-        window.location.href = "mailto:hello@mise-hospitality.com?subject=Demo%20request&body=" + body;
-        if (note) note.textContent = "Opening your email app… or write us at hello@mise-hospitality.com.";
+        window.location.href = "mailto:support@mise-hospitality.com?subject=Demo%20request&body=" + body;
+        if (note) note.textContent = "Opening your email app… or write us at support@mise-hospitality.com.";
         return;
       }
 
@@ -195,11 +195,11 @@
             form.reset();
             if (note) note.textContent = "Thanks — we got it. We'll be in touch shortly.";
           } else if (note) {
-            note.textContent = "Something went wrong. Please email hello@mise-hospitality.com.";
+            note.textContent = "Something went wrong. Please email support@mise-hospitality.com.";
           }
         })
         .catch(function () {
-          if (note) note.textContent = "Network error. Please email hello@mise-hospitality.com.";
+          if (note) note.textContent = "Network error. Please email support@mise-hospitality.com.";
         })
         .finally(function () {
           if (btn) { btn.disabled = false; btn.textContent = "Request a demo"; }
