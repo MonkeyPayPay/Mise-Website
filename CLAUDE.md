@@ -67,8 +67,17 @@ real security). Pieces:
 - **The app:** **Render** web service **`reservation-scheduling-app-2`** (Oregon, Free tier),
   Node native build (`npm ci && npm run build` / `npm start`), deploys the **advanced branch**.
   - `app`: CNAME → `reservation-scheduling-app-2.onrender.com`.
-  - Runs in **demo mode** (no env vars): file-store persistence, integrations dark. Login = pick a
-    demo user + PIN **`1234`**. Resets on restart (good for a public demo).
+  - Env vars now set (2026-08-01): **operator console is LIVE** at
+    `https://app.mise-hospitality.com/operator` — `MISE_OPERATOR_CONSOLE=1`, operator account
+    seeded from `MISE_OPERATOR_EMAIL`/`MISE_OPERATOR_PASSWORD`/`MISE_OPERATOR_NAME` (owner logged
+    in + MFA enrolled). Also `MISE_ALLOW_PROD_SEED=1` + `MISE_REQUIRE_PIN_ROTATION=1` (a newer
+    commit added a prod-seed safety guard that blocked deploys; these two flags mark this service
+    as a deliberate demo deployment; seeded staff logins now force a PIN change on first use).
+    File-store persistence; resets on restart/deploy (operator account re-seeds from env each boot).
+    Public "try it" traffic goes to the demo node (`mise-demo` service, MISE_DEMO_MODE=1 — the
+    guard doesn't apply there); app. is the real sign-in surface.
+    ⚠️ When the FIRST REAL customer onboards: fresh production service with Postgres and NEITHER
+    seed-override flag — let the guard stand watch there.
   - An **old lighter-app Render service** may still exist (Blueprint from *this* repo's `render.yaml`
     on the app repo's superseded branch) — safe to suspend/delete.
 
