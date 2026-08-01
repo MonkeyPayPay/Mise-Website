@@ -171,3 +171,30 @@ The app is a **demo**, not yet productionized. To take real paying restaurants (
 ## Owner / contacts
 - GitHub: **MonkeyPayPay**. Email: jordanadamobrien@gmail.com. Leads → support@monkeypaypay.com.
 - The app's demo owner identity is seeded as **Jordan O'Brien**.
+
+---
+
+## Branch `feature/product-site` (2026-08-01) — full-platform marketing rebuild, NOT merged
+Built per the owner's "PROMPT B" brief; **owner reviews and merges to `main` themselves — do not merge or push to main from this branch.** What's on it (all verified in-browser, gate still active):
+- **Demo hub `/demo.html`** + `assets/demo-urls.js` — THE single swap point for all demo links
+  (final URLs from the platform repo's `DEMO-URLS.md`; TestFlight/Play are TODO-DEMO-URL and render
+  disabled until filled). Persona deep-links (`?persona=gm|chef|accounting|…`).
+- **`/pricing.html`** — two families (Back-office / Full suite) × four tiers, monthly/annual (−15%),
+  gating matrix, and the interactive package builder. ALL numbers render from
+  `assets/pricing-model.js` (mirrors platform `DESIGN-PRICING-PACKAGING.md` §2–6 +
+  `DESIGN-PLAN-BUILDER.md`; one computePrice engine, tier-honesty nudge included). No dollar
+  amounts are hardcoded in HTML — edit the model file to change prices.
+- **Surface pages:** `pos.html` + `reservations.html` reworked (claims code-verified);
+  new `products/mobile.html`, `products/floor.html`.
+- **`/platform.html`** — 17-section back-of-house tour with real screenshots (13 new WebP shots
+  pulled from the platform repo's `docs/publicity/`).
+- **`/contact.html`** demo-request form (Web3Forms; adds #locations + #message fields via main.js).
+- **Homepage:** hero → demos/pricing, four-surfaces section, honest social-proof placeholder
+  (`TODO-SOCIAL-PROOF`), pricing section is now a no-numbers teaser to /pricing.html.
+- **Nav/footer** updated via `scripts/apply_chrome.py` (Product menu grew; Pricing→/pricing.html;
+  Demos top-level; Book a demo→/contact.html). Old `app.mise-hospitality.com` marketing links now
+  point at `/demo.html` (signin.html still goes to the real app login).
+- **`CLAIMS-TO-VERIFY.md`** — unverifiable claims (EMV/tap = not in code; native binaries; etc.)
+  and what to do to publish them. **`docs/SITE-BASELINE.md`** — pre-build inventory.
+- Owner to-dos before this goes live: stand up the demo deployment/DNS per DEMO-URLS.md,
+  fill TestFlight/Play links in `assets/demo-urls.js`, sign off launch prices.

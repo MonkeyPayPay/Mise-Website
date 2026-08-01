@@ -38,7 +38,8 @@ def navi(label, items):
             f'        <button class="navi__trigger" type="button" aria-expanded="false">{label} {CHEV}</button>\n'
             f'        <div class="navi__panel" role="menu">\n{links}\n        </div>\n      </div>')
 
-PRODUCT   = [("Modules","/#platform"),("POS","/pos.html"),("Guest Center","/reservations.html"),
+PRODUCT   = [("Platform overview","/platform.html"),("POS terminal","/pos.html"),("Guest Center","/reservations.html"),
+             ("Mobile app","/products/mobile.html"),("Floor app","/products/floor.html"),
              ("Integrations","/integrations.html"),("Security","/security.html")]
 SOLUTIONS = [("Full-service","/solutions/full-service.html"),("Bars &amp; nightlife","/solutions/bars.html"),
              ("Caf&eacute;s &amp; quick-service","/solutions/cafe-quick-service.html"),("Multi-unit groups","/solutions/multi-unit-groups.html")]
@@ -59,11 +60,12 @@ HEADER = f'''  <a class="skip-link" href="#main">Skip to content</a>
 {navi("Product", PRODUCT)}
 {navi("Solutions", SOLUTIONS)}
 {navi("Resources", RESOURCES)}
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Demos</a>
       </nav>
       <div class="nav__actions">
         <a class="btn btn--ghost" href="/signin.html">Sign in</a>
-        <a class="btn btn--solid" href="/#demo">Book a demo</a>
+        <a class="btn btn--solid" href="/contact.html">Book a demo</a>
       </div>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -73,9 +75,10 @@ HEADER = f'''  <a class="skip-link" href="#main">Skip to content</a>
 {mob("Product", PRODUCT)}
 {mob("Solutions", SOLUTIONS)}
 {mob("Resources", RESOURCES)}
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Live demos</a>
       <a href="/signin.html">Sign in</a>
-      <a class="btn btn--solid btn--block" href="/#demo">Book a demo</a>
+      <a class="btn btn--solid btn--block" href="/contact.html">Book a demo</a>
     </div>
   </header>'''
 
@@ -91,12 +94,13 @@ FOOTER = '''  <footer class="footer">
       <nav class="footer__cols" aria-label="Footer">
         <div>
           <h4>Product</h4>
-          <a href="/#platform">Modules</a>
-          <a href="/pos.html">POS</a>
+          <a href="/platform.html">Back-of-house suite</a>
+          <a href="/pos.html">POS terminal</a>
           <a href="/reservations.html">Guest Center</a>
+          <a href="/products/mobile.html">Mobile app</a>
+          <a href="/products/floor.html">Floor app</a>
           <a href="/integrations.html">Integrations</a>
-          <a href="/security.html">Security</a>
-          <a href="/#pricing">Pricing</a>
+          <a href="/pricing.html">Pricing</a>
         </div>
         <div>
           <h4>Solutions</h4>
@@ -109,8 +113,9 @@ FOOTER = '''  <footer class="footer">
           <h4>Company</h4>
           <a href="/about.html">About</a>
           <a href="/resources.html">Resources &amp; tools</a>
-          <a href="/tools/prime-cost-calculator.html">Free calculators</a>
-          <a href="/#demo">Book a demo</a>
+          <a href="/demo.html">Live demos</a>
+          <a href="/security.html">Security</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div>
           <h4>Compare</h4>

@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mise POS — the point of sale that runs the whole restaurant</title>
-  <meta name="description" content="The Mise POS isn't bolted on — it's the platform. Ring a check and inventory, P&L, the guest profile and the 86 board move in the same instant. Tablet-first, offline-resilient, first-party payments." />
+  <title>Restaurant POS Terminal Software — Fine Dining, Bar &amp; Quick Service | Mise</title>
+  <meta name="description" content="The Mise POS: coursed order entry, bar tabs with card pre-auth, split/merge checks, offline-resilient terminals with idempotent replay, KDS &amp; chit routing by station, and drawer management — inside the restaurant operating system." />
+  <meta name="theme-color" content="#0e1218" />
   <link rel="canonical" href="https://mise-hospitality.com/pos.html" />
-  <meta property="og:title" content="Mise POS — the point of sale that runs the whole restaurant" />
-  <meta property="og:description" content="A POS that IS the platform. One sale event fans out to all eight modules in real time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mise" />
+  <meta property="og:title" content="Restaurant POS Terminal Software — Fine Dining, Bar &amp; Quick Service | Mise" />
+  <meta property="og:description" content="The Mise POS: coursed order entry, bar tabs with card pre-auth, split/merge checks, offline-resilient terminals with idempotent replay, KDS &amp; chit routing by station, and drawer management — inside the restaurant operating system." />
+  <meta property="og:url" content="https://mise-hospitality.com/pos.html" />
   <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mise-hospitality.com/assets/og-image.png" />
   <link rel="icon" href="/assets/app-icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/app-icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -33,9 +40,11 @@
       <div class="navi">
         <button class="navi__trigger" type="button" aria-expanded="false">Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="navi__panel" role="menu">
-          <a role="menuitem" href="/#platform">Modules</a>
-          <a role="menuitem" href="/pos.html">POS</a>
+          <a role="menuitem" href="/platform.html">Platform overview</a>
+          <a role="menuitem" href="/pos.html">POS terminal</a>
           <a role="menuitem" href="/reservations.html">Guest Center</a>
+          <a role="menuitem" href="/products/mobile.html">Mobile app</a>
+          <a role="menuitem" href="/products/floor.html">Floor app</a>
           <a role="menuitem" href="/integrations.html">Integrations</a>
           <a role="menuitem" href="/security.html">Security</a>
         </div>
@@ -58,11 +67,12 @@
           <a role="menuitem" href="/about.html">About</a>
         </div>
       </div>
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Demos</a>
       </nav>
       <div class="nav__actions">
         <a class="btn btn--ghost" href="/signin.html">Sign in</a>
-        <a class="btn btn--solid" href="/#demo">Book a demo</a>
+        <a class="btn btn--solid" href="/contact.html">Book a demo</a>
       </div>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -70,9 +80,11 @@
     </div>
     <div class="mobile-menu" id="mobileMenu" hidden>
       <p class="mobile-menu__h">Product</p>
-      <a href="/#platform">Modules</a>
-      <a href="/pos.html">POS</a>
+      <a href="/platform.html">Platform overview</a>
+      <a href="/pos.html">POS terminal</a>
       <a href="/reservations.html">Guest Center</a>
+      <a href="/products/mobile.html">Mobile app</a>
+      <a href="/products/floor.html">Floor app</a>
       <a href="/integrations.html">Integrations</a>
       <a href="/security.html">Security</a>
       <p class="mobile-menu__h">Solutions</p>
@@ -85,93 +97,88 @@
       <a href="/tools/prime-cost-calculator.html">Calculators</a>
       <a href="/compare/toast.html">Compare vs competitors</a>
       <a href="/about.html">About</a>
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Live demos</a>
       <a href="/signin.html">Sign in</a>
-      <a class="btn btn--solid btn--block" href="/#demo">Book a demo</a>
+      <a class="btn btn--solid btn--block" href="/contact.html">Book a demo</a>
     </div>
   </header>
-
   <main id="main">
-    <!-- Hero -->
-    <section class="section pos">
+    <section class="section">
       <div class="container">
         <div class="split">
           <div class="split__copy reveal">
-            <p class="eyebrow">Mise POS</p>
-            <h1 class="section__title" style="font-size:clamp(2.2rem,5vw,3.4rem)">The point of sale that runs the whole restaurant</h1>
-            <p class="section__lede">Other systems treat the POS as a cash register that exports data at 2 a.m. Mise treats it as the nervous system. The terminal that rings the sale is the same platform that costs the plate, depletes the pantry, updates the guest and posts the 86 — the instant the check closes.</p>
+            <p class="eyebrow">Mise POS &middot; terminal software</p>
+            <h1 class="section__title" style="font-size:clamp(2.1rem,5vw,3.2rem)">A terminal built for fine dining, the bar, and the counter</h1>
+            <p class="section__lede">Order entry that keeps up with a slammed service: coursing, bar tabs with card pre-auth, split and merge without drama — and when the internet drops, <strong>service doesn&rsquo;t</strong>. Every closed check moves inventory, labor and the P&amp;L in the same second.</p>
             <div class="split__cta">
-              <a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">Try it in the live demo</a>
-              <a class="btn btn--outline btn--lg" href="/#demo">Book a walkthrough</a>
+              <a class="btn btn--solid btn--lg" data-demo="pos" href="#">Try the POS demo</a>
+              <a class="btn btn--outline btn--lg" href="/contact.html">Book a demo</a>
             </div>
+            <p class="hero__note">Live demo &mdash; tap a name, PIN 1234, ring against a full menu</p>
           </div>
-          <div class="split__visual reveal" aria-hidden="true">
-            <div class="pos-term">
-              <div class="pos-term__bar"><span>Table 12 · 4 guests</span><span class="pos-term__chk">Check #4417</span></div>
-              <div class="pos-term__body">
-                <div class="pos-term__lines">
-                  <div class="pos-line"><span>Diver Scallops</span><span class="mono">32.00</span></div>
-                  <div class="pos-line pos-line--mod"><span>+ extra citrus</span><span class="mono">—</span></div>
-                  <div class="pos-line"><span>Bavette Steak</span><span class="mono">41.00</span></div>
-                  <div class="pos-line"><span>Cauliflower</span><span class="mono">18.00</span></div>
-                  <div class="pos-line"><span>Negroni</span><span class="mono">16.00</span></div>
-                  <div class="pos-line"><span>Sancerre, glass</span><span class="mono">17.00</span></div>
-                </div>
-                <div class="pos-term__pad">
-                  <button>Apps</button><button>Mains</button><button>Sides</button>
-                  <button>Wine</button><button class="is-active">Bar</button><button>Dessert</button>
-                  <button>Seat</button><button>Split</button><button>Course</button>
-                </div>
-              </div>
-              <div class="pos-term__foot">
-                <div><span>Subtotal</span><span class="mono">124.00</span></div>
-                <button class="pos-term__send">Send to kitchen ▸</button>
-              </div>
-            </div>
+          <div class="split__visual reveal">
+            <figure class="shotframe"><div class="shotframe__bar"><span class="d d--r"></span><span class="d d--a"></span><span class="d d--g"></span><span class="t">Order queue</span></div><img src="/assets/shots/orders.webp" width="1280" height="800" loading="eager" decoding="async" alt="The Mise POS order queue during service." /></figure>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Feature grid -->
-    <section class="section">
+    <section class="section section--muted">
       <div class="container">
         <div class="section__head center reveal">
-          <p class="eyebrow">Why it's different</p>
-          <h2 class="section__title">Built for the floor, wired to everything</h2>
+          <p class="eyebrow">What&rsquo;s inside</p>
+          <h2 class="section__title">Service modes for how you actually serve</h2>
         </div>
         <div class="grid grid--modules">
-          <article class="card reveal"><h3>Tablet-first</h3><p>Coursing, modifiers, seat &amp; split by tap. Fire, hold and transfer without hunting through menus. Handhelds and stationary terminals share one ticket.</p></article>
-          <article class="card reveal"><h3>Offline-resilient</h3><p>Internet blips mid-rush? Keep ringing. Checks queue locally and reconcile the moment you reconnect — no lost sales, no frozen terminal.</p></article>
-          <article class="card reveal"><h3>Real-time depletion</h3><p>Every item is recipe-costed, so a sale draws down inventory live and auto-86's a dish the second an ingredient hits zero.</p></article>
-          <article class="card reveal"><h3>Guest-aware</h3><p>The check knows the guest — allergies flagged, VIPs surfaced, visit count and lifetime spend updated automatically when it closes.</p></article>
-          <article class="card reveal"><h3>Your payments, your choice</h3><p>First-party card processing built in, or keep your processor. Tips, surcharges and split tenders handled cleanly.</p></article>
-          <article class="card reveal"><h3>Or bring your POS</h3><p>Already on Toast, Square or Lightspeed? Webhook adapters turn their closed checks into the same normalized event — adopt Mise without ripping out the register.</p></article>
+          <article class="card reveal"><h3>Coursed order entry</h3><p>Fine-dining mode courses the ticket — fire apps, hold mains, and the kitchen sees the sequence you intend, not a wall of items.</p></article>
+          <article class="card reveal"><h3>Bar tabs with pre-auth</h3><p>Open a tab against a card pre-authorization, keep pouring, close without chasing a walkout. Quick-service mode rings and turns just as fast.</p></article>
+          <article class="card reveal"><h3>Split &amp; merge, sanely</h3><p>Split by seat, by item or evenly; merge parties that combined — the check history stays auditable through every rearrangement.</p></article>
+          <article class="card reveal"><h3>Offline-resilient by design</h3><p>Terminals queue every action in an offline outbox and replay it idempotently when the link returns — the same order never posts twice, and the back office is told how long you were dark.</p></article>
+          <article class="card reveal"><h3>KDS &amp; chit routing</h3><p>Tickets route to the right kitchen display or printer by station; expo sees the whole picture, the sauté station sees sauté.</p></article>
+          <article class="card reveal"><h3>Drawers &amp; cash discipline</h3><p>Drawer sessions, paid-ins/outs, blind counts and over/short land in the cash ledger — the count is a record, not a sticky note.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- One event -->
-    <section class="section section--dark">
-      <div class="container narrow center reveal">
-        <p class="eyebrow eyebrow--light">The one-event model</p>
-        <h2 class="section__title">Close a check. The restaurant updates itself.</h2>
-        <p class="section__lede section__lede--light">A single closed check adds to today's flash and live P&amp;L, depletes inventory through recipe costing, posts any 86 to <span class="mono">#kitchen</span>, and grows the guest's profile — in the same second, with no export and no re-keying.</p>
-        <p style="margin-top:2rem"><a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">See it live in the demo</a></p>
+    <section class="section">
+      <div class="container">
+        <div class="split split--reverse">
+          <div class="split__copy reveal">
+            <p class="eyebrow">Payments &amp; devices</p>
+            <h2 class="section__title">Cards through Stripe, a fleet you can manage</h2>
+            <p class="section__lede">Card payments, deposits and card-on-file run through Stripe — Mise stores tokens, never card numbers. Terminals are enrolled devices in a managed fleet: pre-enrolled, permissioned by role, and revocable from the back office.</p>
+            <ul class="ticks">
+              <li>Tokenized cards; deposits and card-on-file for events and reservations</li>
+              <li>Per-device enrollment with role-scoped staff PIN switch</li>
+              <li>Customer-facing display support for totals and tips</li>
+            </ul>
+          </div>
+          <div class="split__visual reveal">
+            <figure class="shotframe"><div class="shotframe__bar"><span class="d d--r"></span><span class="d d--a"></span><span class="d d--g"></span><span class="t">Live dashboard</span></div><img src="/assets/shots/dashboard.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Mise dashboard the moment a check closes." /></figure>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Subdomain note / CTA -->
+    <section class="section section--dark">
+      <div class="container narrow center reveal">
+        <p class="eyebrow eyebrow--light">One source of truth</p>
+        <h2 class="section__title">Close a check. The restaurant updates.</h2>
+        <p class="section__lede section__lede--light">Sales hit the flash, recipes deplete inventory, the 86 board fires, the guest&rsquo;s profile grows, labor % recalculates — one closed check, every module, the same second. That&rsquo;s the point of running the POS <em>inside</em> the operating system.</p>
+        <p style="margin-top:2rem"><a class="btn btn--solid btn--lg" data-demo="pos" href="#">Ring one in the demo</a></p>
+      </div>
+    </section>
+
     <section class="section band">
       <div class="container narrow center reveal">
-        <p class="eyebrow">Get started</p>
-        <h2 class="section__title">Put the POS to work</h2>
-        <p class="section__lede">Ring your first check in the live demo, or book a walkthrough on your own menu and numbers.</p>
-        <p style="margin-top:1.6rem"><a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">Try the live demo</a> &nbsp; <a class="btn btn--outline btn--lg" href="/#demo">Book a demo</a></p>
+        <p class="eyebrow">Keeping your current POS?</p>
+        <h2 class="section__title">Mise works with the register you have</h2>
+        <p class="section__lede">The back-office family connects to Toast, Square and Lightspeed through adapter connections — same back office, your existing terminal. Switch to the Mise POS whenever it earns it.</p>
+        <p style="margin-top:1.6rem"><a class="btn btn--solid btn--lg" href="/integrations.html">See the adapter story</a> &nbsp; <a class="btn btn--outline btn--lg" href="/pricing.html">Compare the two families</a></p>
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
@@ -184,12 +191,13 @@
       <nav class="footer__cols" aria-label="Footer">
         <div>
           <h4>Product</h4>
-          <a href="/#platform">Modules</a>
-          <a href="/pos.html">POS</a>
+          <a href="/platform.html">Back-of-house suite</a>
+          <a href="/pos.html">POS terminal</a>
           <a href="/reservations.html">Guest Center</a>
+          <a href="/products/mobile.html">Mobile app</a>
+          <a href="/products/floor.html">Floor app</a>
           <a href="/integrations.html">Integrations</a>
-          <a href="/security.html">Security</a>
-          <a href="/#pricing">Pricing</a>
+          <a href="/pricing.html">Pricing</a>
         </div>
         <div>
           <h4>Solutions</h4>
@@ -202,8 +210,9 @@
           <h4>Company</h4>
           <a href="/about.html">About</a>
           <a href="/resources.html">Resources &amp; tools</a>
-          <a href="/tools/prime-cost-calculator.html">Free calculators</a>
-          <a href="/#demo">Book a demo</a>
+          <a href="/demo.html">Live demos</a>
+          <a href="/security.html">Security</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div>
           <h4>Compare</h4>
@@ -219,7 +228,7 @@
       <p><a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a></p>
     </div>
   </footer>
-
+  <script src="/assets/demo-urls.js" defer></script>
   <script src="/main.js" defer></script>
 </body>
 </html>

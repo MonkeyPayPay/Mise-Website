@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Per Location, Never Per Cover | Mise</title>
+  <meta name="description" content="Mise pricing: Back-office (keep your POS) or Full suite (with the Mise POS), four tiers each, monthly or annual, plus a build-your-own package builder — all computed live from one price model. No per-cover fees, no % of revenue." />
+  <meta name="theme-color" content="#0e1218" />
+  <link rel="canonical" href="https://mise-hospitality.com/pricing.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mise" />
+  <meta property="og:title" content="Pricing — Per Location, Never Per Cover | Mise" />
+  <meta property="og:description" content="Mise pricing: Back-office (keep your POS) or Full suite (with the Mise POS), four tiers each, monthly or annual, plus a build-your-own package builder — all computed live from one price model. No per-cover fees, no % of revenue." />
+  <meta property="og:url" content="https://mise-hospitality.com/pricing.html" />
+  <meta property="og:image" content="https://mise-hospitality.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mise-hospitality.com/assets/og-image.png" />
+  <link rel="icon" href="/assets/app-icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/app-icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "96c9c8e0b3554e92bd772091fe69c026"}'></script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mise-hospitality.com/"}, {"@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://mise-hospitality.com/pricing.html"}]}
+  </script>
+  <style>
+    .pt { display:flex; gap:.4rem; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:.3rem; width:max-content; }
+    .pt button { font:inherit; font-weight:600; font-size:.92rem; color:var(--ink-2); background:transparent; border:0; border-radius:999px; padding:.5rem 1.1rem; cursor:pointer; transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
+    .pt button[aria-pressed="true"] { background:var(--saffron); color:var(--ink-deep); }
+    .pt-row { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin:2rem 0 0; }
+    .price__meta { color:var(--muted); font-size:.85rem; margin-top:.2rem; min-height:1.2em; }
+    .price__inc { text-align:left; margin-top:1rem; display:flex; flex-direction:column; gap:.45rem; }
+    .price__inc li { position:relative; padding-left:1.4rem; color:var(--ink-2); font-size:.9rem; }
+    .price__inc li::before { content:"✓"; position:absolute; left:0; color:var(--ok); font-weight:700; }
+    .bld { max-width:880px; margin:2.5rem auto 0; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
+    .bld__grid { display:grid; grid-template-columns:1.1fr .9fr; }
+    @media (max-width:820px){ .bld__grid{ grid-template-columns:1fr; } }
+    .bld__controls { padding:1.8rem 1.7rem; display:grid; gap:1.15rem; }
+    .bld .field { display:grid; gap:.4rem; }
+    .bld label { font-weight:600; font-size:.92rem; color:var(--ink-2); }
+    .bld select { width:100%; background:var(--paper); border:1px solid var(--line); border-radius:10px; color:var(--ink); font:inherit; padding:.6rem .9rem; }
+    .step { display:flex; align-items:center; gap:.7rem; }
+    .step button { width:38px; height:38px; border-radius:10px; border:1px solid var(--line-strong); background:var(--paper); color:var(--ink); font-size:1.15rem; font-weight:600; cursor:pointer; }
+    .step button:hover { border-color:var(--saffron); }
+    .step output { min-width:2.4ch; text-align:center; font-weight:600; font-size:1.05rem; }
+    .chk { display:flex; align-items:flex-start; gap:.6rem; color:var(--ink-2); font-size:.92rem; }
+    .chk input { width:17px; height:17px; margin-top:.2rem; accent-color:var(--saffron); }
+    .chk .note { color:var(--muted); font-size:.8rem; display:block; }
+    .bld__quote { background:var(--ink-deep); color:var(--ink); padding:1.7rem 1.6rem; display:flex; flex-direction:column; gap:.6rem; }
+    .bld__quote .ln { display:flex; justify-content:space-between; gap:1rem; font-size:.92rem; color:var(--on-dark-2); }
+    .bld__quote .ln .v { color:var(--ink); white-space:nowrap; }
+    .bld__total { border-top:1px solid rgba(255,255,255,.12); padding-top:.9rem; margin-top:.5rem; }
+    .bld__total .big { font-family:var(--font-serif); font-size:2.1rem; color:var(--saffron-2); line-height:1.1; }
+    .bld__total .sub { color:var(--on-dark-3); font-size:.85rem; }
+    .nudge { margin-top:.8rem; background:rgba(232,179,75,.1); border:1px solid rgba(232,179,75,.35); border-radius:10px; padding:.7rem .9rem; font-size:.88rem; color:var(--saffron-2); }
+    .nudge a { text-decoration:underline; }
+  </style>
+  <script>(function(){try{if(localStorage.getItem("mise_gate_ok")==="1")return}catch(e){}document.documentElement.className+=" mise-locked"}())</script>
+  <script src="/gate.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Mise home">
+        <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
+        <span class="brand__word">Mise</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/platform.html">Platform overview</a>
+          <a role="menuitem" href="/pos.html">POS terminal</a>
+          <a role="menuitem" href="/reservations.html">Guest Center</a>
+          <a role="menuitem" href="/products/mobile.html">Mobile app</a>
+          <a role="menuitem" href="/products/floor.html">Floor app</a>
+          <a role="menuitem" href="/integrations.html">Integrations</a>
+          <a role="menuitem" href="/security.html">Security</a>
+        </div>
+      </div>
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Solutions <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/solutions/full-service.html">Full-service</a>
+          <a role="menuitem" href="/solutions/bars.html">Bars &amp; nightlife</a>
+          <a role="menuitem" href="/solutions/cafe-quick-service.html">Caf&eacute;s &amp; quick-service</a>
+          <a role="menuitem" href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+        </div>
+      </div>
+      <div class="navi">
+        <button class="navi__trigger" type="button" aria-expanded="false">Resources <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="navi__panel" role="menu">
+          <a role="menuitem" href="/resources.html">Free tools &amp; playbooks</a>
+          <a role="menuitem" href="/tools/prime-cost-calculator.html">Calculators</a>
+          <a role="menuitem" href="/compare/toast.html">Compare vs competitors</a>
+          <a role="menuitem" href="/about.html">About</a>
+        </div>
+      </div>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Demos</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="/signin.html">Sign in</a>
+        <a class="btn btn--solid" href="/contact.html">Book a demo</a>
+      </div>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <p class="mobile-menu__h">Product</p>
+      <a href="/platform.html">Platform overview</a>
+      <a href="/pos.html">POS terminal</a>
+      <a href="/reservations.html">Guest Center</a>
+      <a href="/products/mobile.html">Mobile app</a>
+      <a href="/products/floor.html">Floor app</a>
+      <a href="/integrations.html">Integrations</a>
+      <a href="/security.html">Security</a>
+      <p class="mobile-menu__h">Solutions</p>
+      <a href="/solutions/full-service.html">Full-service</a>
+      <a href="/solutions/bars.html">Bars &amp; nightlife</a>
+      <a href="/solutions/cafe-quick-service.html">Caf&eacute;s &amp; quick-service</a>
+      <a href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+      <p class="mobile-menu__h">Resources</p>
+      <a href="/resources.html">Free tools &amp; playbooks</a>
+      <a href="/tools/prime-cost-calculator.html">Calculators</a>
+      <a href="/compare/toast.html">Compare vs competitors</a>
+      <a href="/about.html">About</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Live demos</a>
+      <a href="/signin.html">Sign in</a>
+      <a class="btn btn--solid btn--block" href="/contact.html">Book a demo</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section">
+      <div class="container narrow center reveal">
+        <p class="eyebrow">Pricing</p>
+        <h1 class="section__title" style="font-size:clamp(2.1rem,5vw,3.2rem)">Per location. Never per cover.</h1>
+        <p class="section__lede">Two families — keep your POS, or run ours — four tiers each, and a build-your-own package priced by the same engine. No per-cover fees, no % of your revenue, no integrity features held ransom by tier.</p>
+        <div class="pt-row">
+          <div class="pt" role="group" aria-label="Product family">
+            <button type="button" data-family="backoffice" aria-pressed="true">Back-office <span class="sr-only">(keep your POS)</span></button>
+            <button type="button" data-family="fullsuite" aria-pressed="false">Full suite <span class="sr-only">(with Mise POS)</span></button>
+          </div>
+          <div class="pt" role="group" aria-label="Billing cycle">
+            <button type="button" data-cycle="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" data-cycle="annual" aria-pressed="false">Annual <span id="annualPct"></span></button>
+          </div>
+        </div>
+        <p class="cmp-note" id="famNote" style="margin-top:1rem">Back-office: the full suite minus our terminal — connect the POS you already run (Toast, Square, Lightspeed).</p>
+      </div>
+    </section>
+
+    <section class="section section--muted">
+      <div class="container">
+        <div class="grid grid--pricing" id="tierCards"><!-- rendered from the price book --></div>
+        <p class="cmp-note" style="margin-top:1.4rem">Annual pricing shows the monthly-equivalent <em>and</em> the total billed today — always both. Usage (email/SMS/instant-payout overages) bills monthly in arrears and is never discounted or prepaid. Prices are launch defaults from the platform price book.</p>
+      </div>
+    </section>
+
+    <section class="section" id="builder">
+      <div class="container">
+        <div class="section__head center reveal">
+          <p class="eyebrow">Build your own</p>
+          <h2 class="section__title">The package builder</h2>
+          <p class="section__lede" style="margin-inline:auto">Same primitives, same engine as the tiers — a tier is just a saved configuration. Compose yours and watch the quote compute live.</p>
+        </div>
+        <div class="bld reveal">
+          <div class="bld__grid">
+            <div class="bld__controls">
+              <div class="field"><label for="bFam">Family</label>
+                <select id="bFam"><option value="backoffice">Back-office (keep your POS)</option><option value="fullsuite">Full suite (with Mise POS)</option></select></div>
+              <div class="field"><label for="bTier">Base tier</label>
+                <select id="bTier"><option value="starter">Starter</option><option value="professional">Professional</option><option value="business">Business</option></select></div>
+              <div class="field"><label>Locations</label>
+                <div class="step"><button type="button" data-step="loc" data-d="-1" aria-label="Fewer locations">&minus;</button><output id="oLoc">1</output><button type="button" data-step="loc" data-d="1" aria-label="More locations">+</button></div></div>
+              <div class="field" id="fTerm"><label>Terminals per location</label>
+                <div class="step"><button type="button" data-step="term" data-d="-1" aria-label="Fewer terminals">&minus;</button><output id="oTerm">2</output><button type="button" data-step="term" data-d="1" aria-label="More terminals">+</button></div></div>
+              <div class="field"><label>Staff seats</label>
+                <div class="step"><button type="button" data-step="seats" data-d="-10" aria-label="Fewer seats">&minus;</button><output id="oSeats">20</output><button type="button" data-step="seats" data-d="10" aria-label="More seats">+</button></div></div>
+              <div class="field"><label>Modules</label>
+                <div style="display:grid;gap:.55rem" id="bAddons"><!-- rendered --></div></div>
+              <div class="field"><label>Extra channel / adapter connections</label>
+                <div class="step"><button type="button" data-step="conn" data-d="-1" aria-label="Fewer connections">&minus;</button><output id="oConn">0</output><button type="button" data-step="conn" data-d="1" aria-label="More connections">+</button></div></div>
+              <div class="field"><label for="bCycle">Billing</label>
+                <select id="bCycle"><option value="monthly">Monthly</option><option value="annual">Annual</option></select></div>
+            </div>
+            <div class="bld__quote" aria-live="polite">
+              <p class="eyebrow eyebrow--light" style="margin-bottom:.4rem">Your quote</p>
+              <div id="qLines"></div>
+              <div class="bld__total">
+                <div class="big" id="qTotal">$0</div>
+                <div class="sub" id="qSub"></div>
+              </div>
+              <div class="nudge" id="qNudge" hidden></div>
+              <p style="margin-top:1rem"><a class="btn btn--solid btn--block" href="/contact.html">Start with this package</a></p>
+              <p class="sub" style="margin-top:.4rem">Quotes are estimates from the launch price book; your order confirms the exact figure. Usage overages bill monthly in arrears.</p>
+            </div>
+          </div>
+        </div>
+        <noscript><p class="cmp-note" style="margin-top:1rem">The interactive builder and live tier prices need JavaScript. For a quote without it, email <a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a>.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section section--muted">
+      <div class="container">
+        <div class="section__head center reveal">
+          <p class="eyebrow">What&rsquo;s in each tier</p>
+          <h2 class="section__title">The gating matrix — one, for both families</h2>
+        </div>
+        <div class="cmp-wrap reveal">
+          <table class="cmp" id="matrixTable"><!-- rendered from the price book --></table>
+        </div>
+        <p class="cmp-note">&#10003; included &nbsp;&middot;&nbsp; $ purchasable as an add-on at that tier &nbsp;&middot;&nbsp; &mdash; included from a higher tier. Audit trails, security, consent and tax correctness are never tiered.</p>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container narrow center reveal">
+        <p class="eyebrow eyebrow--light">The posture</p>
+        <h2 class="section__title">What we refuse to charge for</h2>
+        <p class="section__lede section__lede--light">No % of your sales. No per-cover reservation fees. No % of your staff&rsquo;s tips — instant payouts cost a flat fee, never a cut of principal. And nothing that protects money integrity — audit trails, security, consent — is ever a premium feature.</p>
+        <p style="margin-top:2rem"><a class="btn btn--solid btn--lg" href="/contact.html">Talk through your setup</a></p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="container narrow center reveal">
+        <p class="eyebrow">Try before anything</p>
+        <h2 class="section__title">The demo is open right now</h2>
+        <p class="section__lede">14-day trial at Business-tier entitlements when you&rsquo;re ready — no card to start. Until then, the live demo costs nothing but curiosity.</p>
+        <p style="margin-top:1.6rem"><a class="btn btn--solid btn--lg" href="/demo.html">Open the live demos</a> &nbsp; <a class="btn btn--outline btn--lg" href="/contact.html">Request a walkthrough</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="/" aria-label="Mise home">
+          <img class="brand__mark-img" src="/assets/app-icon-192.png" alt="" width="30" height="30" />
+          <span class="brand__word">Mise</span>
+        </a>
+        <p class="footer__tag">Everything in its place.</p>
+      </div>
+      <nav class="footer__cols" aria-label="Footer">
+        <div>
+          <h4>Product</h4>
+          <a href="/platform.html">Back-of-house suite</a>
+          <a href="/pos.html">POS terminal</a>
+          <a href="/reservations.html">Guest Center</a>
+          <a href="/products/mobile.html">Mobile app</a>
+          <a href="/products/floor.html">Floor app</a>
+          <a href="/integrations.html">Integrations</a>
+          <a href="/pricing.html">Pricing</a>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <a href="/solutions/full-service.html">Full-service</a>
+          <a href="/solutions/bars.html">Bars &amp; nightlife</a>
+          <a href="/solutions/cafe-quick-service.html">Caf&eacute;s &amp; quick-service</a>
+          <a href="/solutions/multi-unit-groups.html">Multi-unit groups</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/about.html">About</a>
+          <a href="/resources.html">Resources &amp; tools</a>
+          <a href="/demo.html">Live demos</a>
+          <a href="/security.html">Security</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <a href="/compare/toast.html">vs Toast</a>
+          <a href="/compare/restaurant365.html">vs Restaurant365</a>
+          <a href="/compare/7shifts.html">vs 7shifts</a>
+          <a href="/compare/sevenrooms.html">vs SevenRooms</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span data-year>2026</span> Mise Hospitality. All rights reserved. &nbsp;&middot;&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="/terms.html">Terms</a></p>
+      <p><a href="mailto:hello@mise-hospitality.com">hello@mise-hospitality.com</a></p>
+    </div>
+  </footer>
+  <script src="/assets/pricing-model.js"></script>
+  <script src="/assets/pricing-page.js" defer></script>
+  <script src="/main.js" defer></script>
+</body>
+</html>

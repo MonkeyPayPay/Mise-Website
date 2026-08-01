@@ -43,8 +43,8 @@
     "description": "The all-in-one restaurant operating system: POS, reservations, scheduling, inventory, procurement, financials, events & private dining, online orders and team comms in one real-time platform, for single venues and multi-location groups.",
     "offers": {
       "@type": "AggregateOffer",
-      "lowPrice": "149",
-      "highPrice": "549",
+      "lowPrice": "79",
+      "highPrice": "799",
       "priceCurrency": "USD",
       "offerCount": "4"
     }
@@ -69,7 +69,7 @@
       { "@type": "Question", "name": "Do I have to replace my POS?",
         "acceptedAnswer": { "@type": "Answer", "text": "No. Mise sits on top of the POS you already run. Webhook adapters for Toast, Square and Lightspeed turn a closed check into one normalized event that fans out to every module — inventory, financials, guest CRM and the 86 board." } },
       { "@type": "Question", "name": "Are there per-cover or per-reservation fees?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Never. Reservations and the guest booking widget are flat-rate on the Service tier and up. You pay per location, not per guest who walks through the door." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "Never. Reservations and guest booking are included flat in every tier of both families. You pay per location, not per guest who walks through the door." } },
       { "@type": "Question", "name": "How long does it take to get set up?",
         "acceptedAnswer": { "@type": "Answer", "text": "Most single locations are live within a day. Your menu, recipes and vendor catalogs import once, and the platform boots with your real sales history flowing through the sync engine." } },
       { "@type": "Question", "name": "Can staff see the financials?",
@@ -95,9 +95,11 @@
       <div class="navi">
         <button class="navi__trigger" type="button" aria-expanded="false">Product <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="navi__panel" role="menu">
-          <a role="menuitem" href="/#platform">Modules</a>
-          <a role="menuitem" href="/pos.html">POS</a>
+          <a role="menuitem" href="/platform.html">Platform overview</a>
+          <a role="menuitem" href="/pos.html">POS terminal</a>
           <a role="menuitem" href="/reservations.html">Guest Center</a>
+          <a role="menuitem" href="/products/mobile.html">Mobile app</a>
+          <a role="menuitem" href="/products/floor.html">Floor app</a>
           <a role="menuitem" href="/integrations.html">Integrations</a>
           <a role="menuitem" href="/security.html">Security</a>
         </div>
@@ -120,11 +122,12 @@
           <a role="menuitem" href="/about.html">About</a>
         </div>
       </div>
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Demos</a>
       </nav>
       <div class="nav__actions">
         <a class="btn btn--ghost" href="/signin.html">Sign in</a>
-        <a class="btn btn--solid" href="/#demo">Book a demo</a>
+        <a class="btn btn--solid" href="/contact.html">Book a demo</a>
       </div>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
@@ -132,9 +135,11 @@
     </div>
     <div class="mobile-menu" id="mobileMenu" hidden>
       <p class="mobile-menu__h">Product</p>
-      <a href="/#platform">Modules</a>
-      <a href="/pos.html">POS</a>
+      <a href="/platform.html">Platform overview</a>
+      <a href="/pos.html">POS terminal</a>
       <a href="/reservations.html">Guest Center</a>
+      <a href="/products/mobile.html">Mobile app</a>
+      <a href="/products/floor.html">Floor app</a>
       <a href="/integrations.html">Integrations</a>
       <a href="/security.html">Security</a>
       <p class="mobile-menu__h">Solutions</p>
@@ -147,9 +152,10 @@
       <a href="/tools/prime-cost-calculator.html">Calculators</a>
       <a href="/compare/toast.html">Compare vs competitors</a>
       <a href="/about.html">About</a>
-      <a href="/#pricing">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Live demos</a>
       <a href="/signin.html">Sign in</a>
-      <a class="btn btn--solid btn--block" href="/#demo">Book a demo</a>
+      <a class="btn btn--solid btn--block" href="/contact.html">Book a demo</a>
     </div>
   </header>
 
@@ -166,10 +172,10 @@
             <strong>one platform, one login, one source of truth.</strong>
           </p>
           <div class="hero__cta">
-            <a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">Try the live demo</a>
-            <a class="btn btn--outline btn--lg" href="#demo">Book a demo</a>
+            <a class="btn btn--solid btn--lg" href="/demo.html">Try the live demos</a>
+            <a class="btn btn--outline btn--lg" href="/pricing.html">See pricing</a>
           </div>
-          <p class="hero__note">Live demo — no signup · 14-day free trial · No per-cover fees</p>
+          <p class="hero__note">Four live demos — no signup · 14-day free trial · No per-cover fees</p>
         </div>
 
         <div class="hero__panel reveal" aria-hidden="true">
@@ -211,6 +217,40 @@
           quite sure which spreadsheet is current. Every seam between those tools is where money leaks
           and service breaks down.
         </p>
+      </div>
+    </section>
+
+    
+    <!-- ===================== FOUR SURFACES ===================== -->
+    <section class="section section--muted" id="surfaces">
+      <div class="container">
+        <div class="section__head center reveal">
+          <p class="eyebrow">One platform, four surfaces</p>
+          <h2 class="section__title">Wherever the work happens, it&rsquo;s the same system</h2>
+        </div>
+        <div class="grid grid--modules grid--2">
+          <article class="card reveal">
+            <h3>POS terminal</h3>
+            <p>Coursing, bar tabs with pre-auth, split/merge, KDS routing and drawers — offline-resilient terminal software for fine dining, the bar and the counter.</p>
+            <a class="card__more" href="/pos.html">Explore the POS &rarr;</a>
+          </article>
+          <article class="card reveal">
+            <h3>Guest Center</h3>
+            <p>Direct booking on your site, availability with kitchen pacing, waitlist, a self-building guest book, deposits — and channel connections. No per-cover fees.</p>
+            <a class="card__more" href="/reservations.html">Explore the Guest Center &rarr;</a>
+          </article>
+          <article class="card reveal">
+            <h3>Mobile app <span style="color:var(--muted);font-size:.8rem;font-weight:500">iOS &amp; Android</span></h3>
+            <p>Shifts, swaps and tips for staff; approvals, alerts and live sales for managers and owners — the same platform, phone-shaped.</p>
+            <a class="card__more" href="/products/mobile.html">Explore the mobile app &rarr;</a>
+          </article>
+          <article class="card reveal">
+            <h3>Tablet floor app</h3>
+            <p>The host stand on a tablet: live floor plan fed by the POS, drag-to-seat, honest waitlist quotes, reservation pacing.</p>
+            <a class="card__more" href="/products/floor.html">Explore the floor app &rarr;</a>
+          </article>
+        </div>
+        <p class="center" style="margin-top:2rem"><a class="btn btn--outline btn--lg" href="/platform.html">Tour the back-of-house &rarr;</a></p>
       </div>
     </section>
 
@@ -323,7 +363,7 @@
             </ul>
             <div class="split__cta">
               <a class="btn btn--solid btn--lg" href="/pos.html">Explore the POS</a>
-              <a class="btn btn--outline btn--lg" href="https://app.mise-hospitality.com/">Try it in the demo</a>
+              <a class="btn btn--outline btn--lg" href="/demo.html">Try it in the demo</a>
             </div>
           </div>
 
@@ -404,7 +444,7 @@
 
         <figure class="shot shot--feature reveal">
           <div class="shotframe">
-            <div class="shotframe__bar"><span class="d d--r"></span><span class="d d--a"></span><span class="d d--g"></span><span class="t">app.mise-hospitality.com — Dashboard</span></div>
+            <div class="shotframe__bar"><span class="d d--r"></span><span class="d d--a"></span><span class="d d--g"></span><span class="t">demo.mise-hospitality.com — Dashboard</span></div>
             <img src="/assets/shots/dashboard.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Mise operator dashboard: live net sales, labor %, covers on the book, the 86 board and low-stock alerts, and who's clocked in — all updating in real time." />
           </div>
           <figcaption class="shot__cap center"><strong>The whole house on one screen.</strong> Every number updates live — a check closed on the POS moves sales, inventory and the 86 board in the same second.</figcaption>
@@ -435,7 +475,7 @@
         </div>
 
         <p class="center reveal" style="margin-top:2.5rem">
-          <a class="btn btn--solid btn--lg" href="https://app.mise-hospitality.com/">Try the live demo</a>
+          <a class="btn btn--solid btn--lg" href="/demo.html">Try the live demo</a>
         </p>
       </div>
     </section>
@@ -460,7 +500,7 @@
             </ul>
             <div class="split__cta">
               <a class="btn btn--solid btn--lg" href="#demo">Book a group demo</a>
-              <a class="btn btn--outline btn--lg" href="#pricing">See Enterprise</a>
+              <a class="btn btn--outline btn--lg" href="/pricing.html">See Enterprise pricing</a>
             </div>
           </div>
 
@@ -529,6 +569,18 @@
       </div>
     </section>
 
+    
+    <!-- ===================== SOCIAL PROOF (placeholders until launch customers) ===================== -->
+    <section class="section" id="proof" aria-label="Customer proof">
+      <div class="container narrow center reveal">
+        <p class="eyebrow">Operators first</p>
+        <h2 class="section__title">Built with the floor, not just for it</h2>
+        <p class="section__lede">Customer names, numbers and stories land here as our first restaurants go live. Until then we&rsquo;d rather show you the product than borrow logos.
+        <!-- TODO-SOCIAL-PROOF: replace with logo band + named quotes + outcome stats when D1 unblocks --></p>
+        <p style="margin-top:1.6rem"><a class="btn btn--solid" href="/demo.html">Judge the demo instead</a></p>
+      </div>
+    </section>
+
     <!-- ===================== PRICING ===================== -->
     <section class="section" id="pricing">
       <div class="container">
@@ -538,60 +590,9 @@
           <p class="section__lede">Per location, per month. 14-day free trial. No per-cover fees. Unlimited staff accounts on every tier.</p>
         </div>
 
-        <div class="grid grid--pricing">
-          <article class="price reveal">
-            <h3 class="price__name">Prep</h3>
-            <p class="price__amount"><span class="price__currency">$</span>149<span class="price__period">/location/mo</span></p>
-            <p class="price__for">Single concepts</p>
-            <ul class="price__list">
-              <li>Inventory &amp; recipe costing</li>
-              <li>Checklists &amp; HACCP logs</li>
-              <li>Team comms</li>
-              <li>Unlimited staff accounts</li>
-            </ul>
-            <a class="btn btn--outline btn--block" href="#demo">Book a demo</a>
-          </article>
-
-          <article class="price price--featured reveal">
-            <span class="price__badge">Most popular</span>
-            <h3 class="price__name">Service</h3>
-            <p class="price__amount"><span class="price__currency">$</span>329<span class="price__period">/location/mo</span></p>
-            <p class="price__for">The full house</p>
-            <ul class="price__list">
-              <li>Everything in Prep</li>
-              <li>Reservations &amp; guest CRM</li>
-              <li>Scheduling &amp; labor</li>
-              <li>Booking widget for your site</li>
-            </ul>
-            <a class="btn btn--solid btn--block" href="#demo">Book a demo</a>
-          </article>
-
-          <article class="price reveal">
-            <h3 class="price__name">Prime</h3>
-            <p class="price__amount"><span class="price__currency">$</span>549<span class="price__period">/location/mo</span></p>
-            <p class="price__for">Run on the numbers</p>
-            <ul class="price__list">
-              <li>Everything in Service</li>
-              <li>Procurement &amp; vendors</li>
-              <li>Live P&amp;L &amp; prime cost</li>
-              <li>Events, BEOs &amp; event P&amp;L</li>
-              <li>Online orders &amp; API access</li>
-            </ul>
-            <a class="btn btn--outline btn--block" href="#demo">Book a demo</a>
-          </article>
-
-          <article class="price reveal">
-            <h3 class="price__name">Enterprise</h3>
-            <p class="price__amount price__amount--custom">Custom</p>
-            <p class="price__for">Groups of 10+</p>
-            <ul class="price__list">
-              <li>Multi-venue portfolio roll-up</li>
-              <li>SSO &amp; data-warehouse feed</li>
-              <li>Dedicated success manager</li>
-              <li>Volume pricing</li>
-            </ul>
-            <a class="btn btn--outline btn--block" href="#demo">Talk to us</a>
-          </article>
+        <div class="narrow center" style="margin-inline:auto">
+          <p class="section__lede">Two families — <strong>Back-office</strong> (keep the POS you have, connected by adapters) and <strong>Full suite</strong> (with the Mise POS) — four tiers each, monthly or annual, plus a package builder that prices your exact configuration live. Per location. Never per cover. Never a percentage of your sales.</p>
+          <p style="margin-top:1.8rem"><a class="btn btn--solid btn--lg" href="/pricing.html">See pricing &amp; build yours</a></p>
         </div>
       </div>
     </section>
@@ -611,7 +612,7 @@
           </details>
           <details class="faq__item reveal">
             <summary>Are there per-cover or per-reservation fees?</summary>
-            <p>Never. Reservations and the guest booking widget are flat-rate on the Service tier and up. You pay per location, not per guest who walks through the door.</p>
+            <p>Never. Reservations and guest booking are included flat in every tier of both families. You pay per location, not per guest who walks through the door.</p>
           </details>
           <details class="faq__item reveal">
             <summary>How long does it take to get set up?</summary>
@@ -672,12 +673,13 @@
       <nav class="footer__cols" aria-label="Footer">
         <div>
           <h4>Product</h4>
-          <a href="/#platform">Modules</a>
-          <a href="/pos.html">POS</a>
+          <a href="/platform.html">Back-of-house suite</a>
+          <a href="/pos.html">POS terminal</a>
           <a href="/reservations.html">Guest Center</a>
+          <a href="/products/mobile.html">Mobile app</a>
+          <a href="/products/floor.html">Floor app</a>
           <a href="/integrations.html">Integrations</a>
-          <a href="/security.html">Security</a>
-          <a href="/#pricing">Pricing</a>
+          <a href="/pricing.html">Pricing</a>
         </div>
         <div>
           <h4>Solutions</h4>
@@ -690,8 +692,9 @@
           <h4>Company</h4>
           <a href="/about.html">About</a>
           <a href="/resources.html">Resources &amp; tools</a>
-          <a href="/tools/prime-cost-calculator.html">Free calculators</a>
-          <a href="/#demo">Book a demo</a>
+          <a href="/demo.html">Live demos</a>
+          <a href="/security.html">Security</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div>
           <h4>Compare</h4>

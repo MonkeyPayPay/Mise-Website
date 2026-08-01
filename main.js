@@ -161,12 +161,14 @@
       var email = (form.querySelector("#email") || {}).value || "";
       var rest = (form.querySelector("#restaurant") || {}).value || "";
       var phone = (form.querySelector("#phone") || {}).value || "";
+      var locations = (form.querySelector("#locations") || {}).value || "";
+      var message = (form.querySelector("#message") || {}).value || "";
       var honey = (form.querySelector("[name=botcheck]") || {}).checked;
       if (honey) { if (note) note.textContent = "Thanks — we got it."; return; } // bot trap
 
       // Not configured yet → mailto fallback so a lead is never lost.
       if (!WEB3FORMS_KEY || WEB3FORMS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY") {
-        var body = "Name: " + name + "%0ARestaurant: " + rest + "%0AEmail: " + email + "%0APhone: " + phone;
+        var body = "Name: " + name + "%0ARestaurant: " + rest + "%0AEmail: " + email + "%0APhone: " + phone + "%0ALocations: " + locations + "%0A" + message;
         window.location.href = "mailto:hello@mise-hospitality.com?subject=Demo%20request&body=" + body;
         if (note) note.textContent = "Opening your email app… or write us at hello@mise-hospitality.com.";
         return;
@@ -184,6 +186,7 @@
           subject: "New demo request — Mise",
           from_name: "Mise website",
           name: name, email: email, restaurant: rest, phone: phone,
+          locations: locations, message: message,
         }),
       })
         .then(function (r) { return r.json(); })
