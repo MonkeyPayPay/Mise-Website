@@ -83,7 +83,11 @@ real security). Pieces:
 
 ### Integrations wired into the site
 - **Lead capture:** Web3Forms. Access key in `main.js` (`WEB3FORMS_KEY`) → submissions email
-  **support@monkeypaypay.com**. Falls back to `mailto:` if key missing. Honeypot field included.
+  **support@mise-hospitality.com** (swapped 2026-08-01; old key went to support@monkeypaypay.com).
+  Falls back to `mailto:` if key missing. Honeypot field included.
+- **Company mailbox:** `support@mise-hospitality.com` is a **real GoDaddy mailbox** (not a
+  forward — owner deliberately keeps it independent of personal email). Read via GoDaddy
+  webmail or an IMAP mail app. This is the ONLY contact address used anywhere on the site.
 - **Analytics:** Cloudflare Web Analytics beacon on every page (token `96c9c8e0…`, in each `<head>`).
 - **SEO:** Google Search Console verified (meta tag in `index.html`); `sitemap.xml` submitted;
   `robots.txt` present.

@@ -142,11 +142,13 @@
   var yr = document.querySelector("[data-year]");
   if (yr) yr.textContent = String(new Date().getFullYear());
 
-  // --- Demo form: captures leads to your inbox via Web3Forms ---------------
-  // SETUP (≈60s, no account): go to https://web3forms.com, enter the email you
-  // want leads sent to, copy the access key, and paste it below. Until you do,
-  // the form gracefully falls back to opening a pre-filled email.
-  var WEB3FORMS_KEY = "7130a5a4-b2e8-4fe9-a5cd-adef0807d53e";
+  // --- Demo form: captures leads via Web3Forms -----------------------------
+  // Key below is bound to support@mise-hospitality.com (the GoDaddy mailbox) —
+  // every demo request from the site is delivered there. To change the
+  // destination: create a new key at https://web3forms.com for the new address
+  // and swap it here. If the key is ever blank, the form gracefully falls back
+  // to opening a pre-filled email instead of losing the lead.
+  var WEB3FORMS_KEY = "8bb04d24-7ac0-41f5-b711-e116b97b95ae";
 
   var form = document.querySelector(".cta__form");
   if (form) {
