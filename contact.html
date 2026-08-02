@@ -112,8 +112,26 @@
       </div>
     </section>
 
+    <!-- Scheduler — revealed by assets/calendly.js once a real Calendly URL is set -->
+    <section class="section" data-calendly-section hidden>
+      <div class="container reveal">
+        <div class="section__head center">
+          <p class="eyebrow">Pick a time</p>
+          <h2 class="section__title">Book your walkthrough</h2>
+          <p class="section__lede" style="margin-inline:auto">Grab a slot that suits your service hours — 30 minutes, your menu, your questions. No prep needed.</p>
+        </div>
+        <div class="calendly-wrap">
+          <div data-calendly></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--muted">
       <div class="container narrow reveal">
+        <div class="section__head center">
+          <p class="eyebrow">Or send a note</p>
+          <h2 class="section__title">Tell us about your restaurant</h2>
+        </div>
         <form class="cta__form" style="max-width:560px;margin:0 auto" novalidate>
           <label class="sr-only" for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
@@ -195,5 +213,6 @@
     </div>
   </footer>
   <script src="/main.js" defer></script>
+  <script src="/assets/calendly.js" defer></script>
 </body>
 </html>

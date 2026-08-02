@@ -88,6 +88,11 @@ real security). Pieces:
 - **Company mailbox:** `support@mise-hospitality.com` is a **real GoDaddy mailbox** (not a
   forward — owner deliberately keeps it independent of personal email). Read via GoDaddy
   webmail or an IMAP mail app. This is the ONLY contact address used anywhere on the site.
+- **Calendly (demo-call scheduler):** wired on `/contact.html`, config = **`assets/calendly.js`**
+  (single swap point, same pattern as demo-urls.js). Set `CALENDLY_URL` to the real event link
+  and the scheduler appears, auto-themed to the candlelight palette. While it's
+  `TODO-CALENDLY-URL` — or if Calendly fails to load — the section stays hidden and the
+  contact form is the only path (no broken widget, no dead end). **Needs owner's Calendly link.**
 - **Analytics:** Cloudflare Web Analytics beacon on every page (token `96c9c8e0…`, in each `<head>`).
 - **SEO:** Google Search Console verified (meta tag in `index.html`); `sitemap.xml` submitted;
   `robots.txt` present.

@@ -521,6 +521,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .fair__panel h3 { font-size: 1.25rem; margin-bottom: .8rem; }
 .fair__panel--mise { border-color: rgba(232,179,75,.35); background: linear-gradient(180deg, rgba(232,179,75,.06), transparent 70%), var(--card); }
 
+
+/* -------- Calendly scheduler embed (contact page) -------- */
+[hidden] { display: none; }
+.calendly-wrap {
+  max-width: 900px; margin: 0 auto;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.calendly-wrap .calendly-inline-widget { display: block; width: 100%; min-width: 320px; height: 700px; }
+@media (max-width: 560px) { .calendly-wrap .calendly-inline-widget { height: 820px; } }
+
 /* ============================================================
    Pre-launch preview gate (soft). Remove this block + gate.js +
    the two <script> lines injected into each <head> to go public.
