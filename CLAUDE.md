@@ -90,9 +90,12 @@ real security). Pieces:
   webmail or an IMAP mail app. This is the ONLY contact address used anywhere on the site.
 - **Calendly (demo-call scheduler):** wired on `/contact.html`, config = **`assets/calendly.js`**
   (single swap point, same pattern as demo-urls.js). Set `CALENDLY_URL` to the real event link
-  and the scheduler appears, auto-themed to the candlelight palette. While it's
-  `TODO-CALENDLY-URL` — or if Calendly fails to load — the section stays hidden and the
-  contact form is the only path (no broken widget, no dead end). **Needs owner's Calendly link.**
+  and the scheduler appears, auto-themed to the candlelight palette. **LIVE 2026-08-01:**
+  `https://calendly.com/mise-hospitality-support/30min` (Calendly account is on the
+  support@mise-hospitality.com mailbox). ⚠️ Changing the event's URL *slug* in Calendly breaks
+  this link — update both together; renaming the event's display name is safe. If the URL is
+  ever unset, or Calendly fails to load, the section hides itself and the contact form remains
+  the path (no broken widget, no dead end).
 - **Analytics:** Cloudflare Web Analytics beacon on every page (token `96c9c8e0…`, in each `<head>`).
 - **SEO:** Google Search Console verified (meta tag in `index.html`); `sitemap.xml` submitted;
   `robots.txt` present.

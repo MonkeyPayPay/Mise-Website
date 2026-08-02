@@ -2,11 +2,13 @@
    CALENDLY config — THE single swappable location for the
    demo-call scheduler.
 
-   TO ACTIVATE: replace TODO-CALENDLY-URL below with your real
-   Calendly event link, e.g.
-       "https://calendly.com/mise-hospitality/demo"
-   …and that's it. The scheduler appears on /contact.html
-   automatically, themed to match the site.
+   LIVE since 2026-08-01 — booking notifications go to the
+   support@mise-hospitality.com Calendly account.
+
+   TO CHANGE THE LINK: replace CALENDLY_URL below. ⚠️ If you edit
+   the event's URL slug in Calendly (Event types → the event →
+   its link), the old link 404s — update it here at the same time.
+   Renaming the event's display NAME is safe; the slug is what matters.
 
    WHILE UNSET (or if Calendly fails to load) the scheduler
    section stays hidden and the contact form is the only path —
@@ -15,7 +17,7 @@
 (function () {
   "use strict";
 
-  var CALENDLY_URL = "TODO-CALENDLY-URL";
+  var CALENDLY_URL = "https://calendly.com/mise-hospitality-support/30min";
 
   // Brand the embed to the candlelight palette (Calendly reads these params).
   var THEME = {
